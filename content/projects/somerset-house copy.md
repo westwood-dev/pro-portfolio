@@ -1,5 +1,5 @@
 ---
-title: Somerset House Studios
+title: Full-Stack E-Commerce Site
 ---
 
 # Big title here

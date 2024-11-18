@@ -1,5 +1,5 @@
 ---
-title: Somerset House Studios
+title: LLM Powered Database & Search
 ---
 
 # Big title here
