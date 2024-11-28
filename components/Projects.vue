@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 const { data } = await useAsyncData('projects', () =>
-  queryContent('projects').find()
+  queryContent('projects').sort({ date: -1 }).find()
 );
 </script>
 
@@ -59,6 +59,7 @@ const { data } = await useAsyncData('projects', () =>
   margin: 0;
   font-size: 4.75vw;
   text-decoration: none;
+  width: 100%;
 }
 
 .project-arrow {

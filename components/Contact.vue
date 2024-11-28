@@ -79,12 +79,14 @@
   font-size: 4.75vw;
   text-decoration: none;
   color: rgba(var(--text), 0.5);
+  transition: color 0.5s;
 }
 
 .contact-text {
   font-weight: 300;
   font-size: 4.75vw;
   transition: transform 0.25s;
+  transition: color 0.5s;
 }
 
 .contact-arrow {

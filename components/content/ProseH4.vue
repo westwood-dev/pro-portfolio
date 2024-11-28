@@ -23,7 +23,7 @@ const generate = computed(
 h4 {
   font-size: 2rem;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 2rem;
   margin: 1.5rem 0;
   text-transform: uppercase;
 }

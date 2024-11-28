@@ -23,7 +23,7 @@ const generate = computed(
 h3 {
   font-size: 3rem;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 3rem;
   margin: 1.5rem 0;
   text-transform: uppercase;
 }
