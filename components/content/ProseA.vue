@@ -36,7 +36,7 @@ const props = defineProps({
 
 <style scoped>
 a {
-  color: rgb(var(--text));
+  color: rgb(var(--link));
   text-decoration: none;
   transition: color 0.3s;
 }

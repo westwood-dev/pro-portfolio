@@ -36,6 +36,8 @@ body {
   --text: 255, 255, 255;
   --bg: 0, 0, 0;
   --border-width: 0.25rem;
+  /* --link: 180 180 243; */
+  --link: 193, 18, 31;
 }
 
 .text-colour {
