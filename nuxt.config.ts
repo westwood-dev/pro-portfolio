@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     url: 'https://williamwestwood.com',
     name: 'William Westwood',
     description:
-      'William Westwood is a web developer and designer based in London, UK.',
+      'William Westwood is a developer and designer based in London, UK.',
     defaultLocale: 'en',
   },
 });
