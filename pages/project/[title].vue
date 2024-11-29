@@ -31,10 +31,7 @@
         align-items: center;
       "
     >
-      <ContentRenderer
-        :value="data!"
-        style="max-width: 1500px; padding-bottom: 2rem"
-      />
+      <ContentRenderer :value="data!" class="project-content-renderer" />
     </div>
   </div>
 </template>
@@ -53,5 +50,19 @@ video {
   max-width: 100%;
   max-height: 90vh;
   height: auto;
+}
+
+.project-content-renderer {
+  max-width: 1500px;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .project-content-renderer {
+    max-width: 100%;
+  }
 }
 </style>

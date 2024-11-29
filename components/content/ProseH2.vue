@@ -27,4 +27,11 @@ h2 {
   margin: 1.5rem 0;
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
 </style>
