@@ -5,7 +5,7 @@ date: wip
 
 ## Work in Progress
 
-![Placeholder Image (1920x1080)](https://placehold.co/1920x1080)
+<!-- ![Placeholder Image (1920x1080)](https://placehold.co/1920x1080) -->
 
 ### About project
 

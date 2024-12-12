@@ -21,6 +21,13 @@
           'vw',
       }"
     >
+      <NuxtLink to="/">
+        <Icon
+          name="material-symbols:arrow-forward"
+          class="text-colour"
+          style="transform: rotate(180deg); margin-bottom: -1vw"
+        />
+      </NuxtLink>
       {{ params.title }}
     </div>
     <div
@@ -31,7 +38,10 @@
         align-items: center;
       "
     >
-      <ContentRenderer :value="data!" class="project-content-renderer" />
+      <ContentRenderer
+        :value="data!"
+        class="project-content-renderer text-colour"
+      />
     </div>
   </div>
 </template>

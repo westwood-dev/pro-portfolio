@@ -3,12 +3,16 @@
     <NuxtPage />
     <div class="footer-cont">
       <ThemeChanger />
-      <span>William Westwood | 2024</span>
+      <span class="text-colour">William Westwood | 2024</span>
       <div>
         <a href="https://design.williamwestwood.com" class="text-colour"
           >design work</a
         >
-        <Icon name="material-symbols:arrow-outward" size="1rem" />
+        <Icon
+          class="text-colour"
+          name="material-symbols:arrow-outward"
+          size="1rem"
+        />
       </div>
     </div>
   </div>

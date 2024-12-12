@@ -6,7 +6,7 @@ date: 07-2024
 
 ### Design and development of a clothing focused e-commerce website, using PayPal API for payment validation
 
-![Placeholder Image (1920x1080)](https://placehold.co/1920x1080)
+![Placeholder Image (1920x1080)](/images/dont-drink-the-water/homepage.png)
 
 <br/>
 
@@ -14,8 +14,8 @@ The main goal of this project was to create a fully functional e-commerce websit
 
 ## 3D character
 
-![Character gif](https://placehold.co/512x512)
-![Character gif](https://placehold.co/512x512)
+<!-- ![Character gif](https://placehold.co/512x512)
+![Character gif](https://placehold.co/512x512) -->
 
 <br/>
 
