@@ -1,5 +1,12 @@
 <template>
-  <div style="min-height: calc(100vh - 5rem)">
+  <div
+    style="
+      min-height: calc(100vh - 5rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    "
+  >
     <div
       class="title text-colour"
       :style="{
@@ -63,7 +70,7 @@ video {
 }
 
 .project-content-renderer {
-  max-width: 1500px;
+  max-width: 135vh;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;

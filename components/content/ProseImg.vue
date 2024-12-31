@@ -1,11 +1,18 @@
 <template>
-  <component
-    :is="ImageComponent"
-    :src="refinedSrc"
-    :alt="props.alt"
-    :width="props.width"
-    :height="props.height"
-  />
+  <div class="img-holder">
+    <div class="img-cont">
+      <component
+        :is="ImageComponent"
+        :src="refinedSrc"
+        :alt="props.alt"
+        :width="props.width"
+        :height="props.height"
+      />
+      <span v-if="props.alt.length > 0" class="img-caption">{{
+        props.alt
+      }}</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -47,8 +54,31 @@ const refinedSrc = computed(() => {
 </script>
 
 <style scoped>
+.img-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.img-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+}
+
 img {
   max-width: 100%;
   max-height: 90vh;
+}
+
+.img-caption {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  text-align: left;
+  width: fit-content;
+  opacity: 0.75;
 }
 </style>
