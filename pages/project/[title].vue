@@ -64,7 +64,8 @@ const { data } = await useAsyncData(String(params.title), () =>
 
 <style>
 video {
-  max-width: 100%;
+  max-width: 135vh;
+  width: 100%;
   max-height: 90vh;
   height: auto;
 }
