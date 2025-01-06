@@ -6,7 +6,7 @@ date: 07-2024
 
 ### Design and development of a clothing focused e-commerce website, using PayPal API for payment validation
 
-![Placeholder Image (1920x1080)](/images/dont-drink-the-water/homepage.png)
+![Placeholder Image (1920x1080)](/images/dont-drink-the-water/homepage_animated.gif)
 
 <br/>
 
