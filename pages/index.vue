@@ -29,7 +29,7 @@
       </div>
       <div class="client-links-cont">
         <div style="display: flex; flex-direction: row">
-          <a href="https://www.somersethouse.org.uk/somerset-house-studios"
+          <a href="https://www.somersethouse.org.uk/somerset-house-studios" target="_blank"
             >Somerset House Studios</a
           >
           <Icon
@@ -40,7 +40,7 @@
         </div>
         <span>---</span>
         <div style="display: flex; flex-direction: row">
-          <a href="https://www.arts.ac.uk/creative-computing-institute"
+          <a href="https://www.arts.ac.uk/creative-computing-institute" target="_blank"
             >Creative Computing Institute</a
           >
           <Icon
@@ -51,7 +51,7 @@
         </div>
         <span>---</span>
         <div style="display: flex; flex-direction: row">
-          <a href="https://dontdrinkthewater.shop">Don't Drink The Water</a>
+          <a href="https://dontdrinkthewater.shop" target="_blank">Don't Drink The Water</a>
           <Icon
             name="material-symbols:arrow-outward"
             size="1rem"
