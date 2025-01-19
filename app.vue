@@ -8,7 +8,7 @@
         @change-theme="handleThemeChange"
         @select-theme="handleThemeSelect"
       />
-      <span class="text-colour">William Westwood | 2024</span>
+      <span class="text-colour">William Westwood | 2025</span>
       <div>
         <a href="https://design.williamwestwood.com" class="text-colour"
           >design work</a
