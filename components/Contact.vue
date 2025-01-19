@@ -96,7 +96,7 @@
   text-decoration: none;
   position: absolute;
   right: -5vw;
-  transition: transform 0.25s;
+  transition: transform 0.25s, color 0.5s, background-color 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;

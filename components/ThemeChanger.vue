@@ -1,54 +1,65 @@
 <template>
-  <div class="theme-change-button">
-    <Icon
-      id="themeIcon"
-      class="textColour"
-      :name="
-        theme == 'dark'
-          ? 'material-symbols:light-mode'
-          : 'material-symbols:dark-mode'
+  <div class="theme-controls">
+    <div v-if="!showSelector" class="theme-change-button">
+      <Icon
+        id="themeIcon"
+        class="textColour"
+        :name="
+          currentTheme === 'dark'
+            ? 'material-symbols:light-mode'
+            : 'material-symbols:dark-mode'
+        "
+        @click="$emit('change-theme')"
+      />
+    </div>
+    <select
+      v-if="showSelector"
+      class="theme-selector"
+      :value="currentTheme"
+      @change="
+        $emit('select-theme', ($event.target as HTMLSelectElement).value)
       "
-      @click="changeTheme"
-    />
+    >
+      <option v-for="(_, name) in themes" :key="name" :value="name">
+        {{ String(name).charAt(0).toUpperCase() + String(name).slice(1) }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script setup lang="ts">
-const theme = ref('dark');
+import { themes } from '../utils/theme';
 
-const changeTheme = () => {
-  console.log('changing theme');
-  let root = document.documentElement;
+defineProps<{
+  currentTheme: string;
+  showSelector?: boolean;
+}>();
 
-  if (theme.value === 'light') {
-    root.style.setProperty('--text', '255,255,255');
-    root.style.setProperty('--bg', '0,0,0');
-    // document.querySelector('#theme-symbol')!.innerHTML = 'light_mode';
-    document
-      .querySelector('#themeIcon')!
-      .setAttribute('name', 'material-symbols:light-mode');
-    theme.value = 'dark';
-  } else {
-    root.style.setProperty('--text', '0,0,0');
-    root.style.setProperty('--bg', '255,255,255');
-    // document.querySelector('#theme-symbol')!.innerHTML = 'dark_mode';
-    document
-      .querySelector('#themeIcon')!
-      .setAttribute('name', 'material-symbols:dark-mode');
-    theme.value = 'light';
-  }
-};
-
-onBeforeMount(() => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  console.log(prefersDark);
-  if (!prefersDark) {
-    changeTheme();
-  }
-});
+defineEmits<{
+  'change-theme': [];
+  'select-theme': [theme: string];
+}>();
 </script>
 
 <style scoped>
+.theme-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.theme-selector {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  transition: color 0.5s, background 0.5s;
+  border: 1px solid rgb(var(--text));
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
 .theme-change-button {
   display: flex;
   justify-content: center;

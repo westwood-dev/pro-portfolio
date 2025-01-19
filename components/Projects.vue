@@ -70,6 +70,7 @@ const { data } = await useAsyncData('projects', () =>
   justify-content: center;
   align-items: center;
   color: rgb(var(--text));
+  transition: color 0.5s;
 }
 
 .project:hover {

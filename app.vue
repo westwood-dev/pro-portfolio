@@ -2,7 +2,12 @@
   <div class="bg-colour text-colour site-cont">
     <NuxtPage />
     <div class="footer-cont">
-      <ThemeChanger />
+      <ThemeChanger
+        :current-theme="currentTheme"
+        :show-selector="true"
+        @change-theme="handleThemeChange"
+        @select-theme="handleThemeSelect"
+      />
       <span class="text-colour">William Westwood | 2024</span>
       <div>
         <a href="https://design.williamwestwood.com" class="text-colour"
@@ -18,7 +23,20 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { theme, currentTheme, setTheme } = useTheme();
+
+const handleThemeChange = () => {
+  if (!theme.value) return;
+  const newTheme = currentTheme.value === 'light' ? 'dark' : 'light';
+  setTheme(newTheme);
+};
+
+const handleThemeSelect = (newTheme: string) => {
+  if (!theme.value) return;
+  setTheme(newTheme);
+};
+</script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
@@ -37,11 +55,10 @@ body {
 }
 
 :root {
-  --text: 255, 255, 255;
-  --bg: 0, 0, 0;
+  --text: 0, 0, 0;
+  --bg: 242, 67, 58;
   --border-width: 0.25rem;
-  /* --link: 180 180 243; */
-  --link: 193, 18, 31;
+  --link: 17, 44, 178;
 }
 
 .text-colour {
@@ -66,6 +83,7 @@ body {
 
 .site-cont {
   padding: 2rem;
+  min-height: 100svh;
 }
 
 .title {
