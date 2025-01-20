@@ -1,75 +1,13 @@
-# Nuxt Minimal Starter
+# Pro-Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Description
 
-## Setup
+This is a portfolio that showcases my work and skills as a developer. It includes a portfolio of projects and contact information. The portfolio is built using Nuxt and builds to a static site that is hosted on GitHub Pages.
 
-Make sure to install dependencies:
+## Projects
 
-```bash
-# npm
-npm install
+The main project data is stored in markdown files in the '[content/projects](/content/projects)' directory. The project data is built into a static page at build using [Nuxt Content](https://content.nuxt.com/).
 
-# pnpm
-pnpm install
+## Theming
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The site contains a custom theming engine, made up of a theme.ts util, useTheme compostable and ThemeChanger component. The theming currently affects: text, background and link colours. The themes are stored in an object in '[utils/theme.ts](/utils)'
