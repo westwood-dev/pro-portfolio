@@ -10,6 +10,16 @@ export const themes: { [key: string]: ITheme } = {
     bg: '242,67,58',
     link: '17,44,178',
   },
+  green: {
+    text: '0,0,0',
+    bg: '0,189,50',
+    link: '17,44,178',
+  },
+  blue: {
+    text: '0,0,0',
+    bg: '4,171,217',
+    link: '193,18,31',
+  },
   light: {
     text: '0,0,0',
     bg: '255,255,255',
