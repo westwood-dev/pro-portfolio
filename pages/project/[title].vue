@@ -60,6 +60,14 @@ const { data } = await useAsyncData(String(params.title), () =>
     .where({ title: String(params.title) })
     .findOne()
 );
+
+// Add this error handling
+if (!data.value) {
+  throw createError({
+    statusCode: 404,
+    message: 'Project not found',
+  });
+}
 </script>
 
 <style>

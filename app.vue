@@ -58,7 +58,7 @@ body {
   --text: 0, 0, 0;
   --bg: 242, 67, 58;
   --border-width: 0.25rem;
-  --link: 17, 44, 178;
+  --link: 2255, 255, 255;
 }
 
 .text-colour {
