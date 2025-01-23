@@ -11,3 +11,9 @@ The main project data is stored in markdown files in the '[content/projects](/co
 ## Theming
 
 The site contains a custom theming engine, made up of a theme.ts util, useTheme compostable and ThemeChanger component. The theming currently affects: text, background and link colours. The themes are stored in an object in '[utils/theme.ts](/utils)'
+
+## TODO
+
+- [ ] Hide CCI LLM project
+- [ ] Add theme slider instead of select
+- [ ] Add text animation

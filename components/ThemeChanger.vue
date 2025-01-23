@@ -1,6 +1,21 @@
 <template>
   <div class="theme-controls">
-    <div v-if="!showSelector" class="theme-change-button">
+    <div v-if="selector == 'slider'">
+      <input
+        class="theme-selector-slider"
+        type="range"
+        min="0"
+        :max="themesArray.length - 1"
+        step="0.01"
+        @input="
+          $emit(
+            'select-theme',
+            themesArray[Math.round(($event.target as HTMLInputElement).value)]
+          )
+        "
+      />
+    </div>
+    <div v-else-if="selector == 'switch'" class="theme-change-button">
       <Icon
         id="themeIcon"
         class="textColour"
@@ -13,7 +28,7 @@
       />
     </div>
     <select
-      v-if="showSelector"
+      v-else
       class="theme-selector"
       :value="currentTheme"
       @change="
@@ -30,9 +45,12 @@
 <script setup lang="ts">
 import { themes } from '../utils/theme';
 
+const currentThemeIdx = ref(0);
+const themesArray = Object.keys(themes);
+
 defineProps<{
   currentTheme: string;
-  showSelector?: boolean;
+  selector?: string;
 }>();
 
 defineEmits<{
@@ -58,6 +76,103 @@ defineEmits<{
   border: none;
   cursor: pointer;
   text-transform: capitalize;
+}
+
+input[type='range'] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  appearance: none;
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type='range']:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: rgb(var(--text));
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type='range']::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: rgb(var(--text));
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type='range']::-ms-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 14px;
+  background: rgb(var(--text));
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgb(var(--text));
+  border-radius: 1.3px;
+}
+
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: rgb(var(--text));
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgb(var(--text));
+  border-radius: 1.3px;
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  background: rgb(var(--text));
+}
+input[type='range']:focus::-ms-fill-lower {
+  background: rgb(var(--text));
+}
+input[type='range']::-ms-fill-upper {
+  background: rgb(var(--text));
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: rgb(var(--text));
 }
 
 .theme-change-button {

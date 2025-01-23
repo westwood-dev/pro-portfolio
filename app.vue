@@ -3,6 +3,7 @@
     <NuxtPage />
     <div class="footer-cont">
       <ThemeChanger
+        :selector="'slider'"
         :current-theme="currentTheme"
         :show-selector="true"
         @change-theme="handleThemeChange"

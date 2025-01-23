@@ -1,7 +1,26 @@
 <template>
   <div class="full-page" style="padding-top: 0">
     <h1 class="title text-colour" style="overflow: hidden">
-      William<br />Westwood
+      <span>
+        <span>W</span>
+        <span>i</span>
+        <span>l</span>
+        <span>l</span>
+        <span>i</span>
+        <span>a</span>
+        <span>m</span>
+      </span>
+      <span>
+        <span>w</span>
+        <span>e</span>
+        <span>s</span>
+        <span>t</span>
+        <span>w</span>
+        <span>o</span>
+        <span>o</span>
+        <span>d</span>
+      </span>
+      <!-- William<br />Westwood -->
     </h1>
     <div
       class="top-links-cont"
@@ -29,7 +48,9 @@
       </div>
       <div class="client-links-cont">
         <div style="display: flex; flex-direction: row">
-          <a href="https://www.somersethouse.org.uk/somerset-house-studios" target="_blank"
+          <a
+            href="https://www.somersethouse.org.uk/somerset-house-studios"
+            target="_blank"
             >Somerset House Studios</a
           >
           <Icon
@@ -40,7 +61,9 @@
         </div>
         <span>---</span>
         <div style="display: flex; flex-direction: row">
-          <a href="https://www.arts.ac.uk/creative-computing-institute" target="_blank"
+          <a
+            href="https://www.arts.ac.uk/creative-computing-institute"
+            target="_blank"
             >Creative Computing Institute</a
           >
           <Icon
@@ -51,7 +74,9 @@
         </div>
         <span>---</span>
         <div style="display: flex; flex-direction: row">
-          <a href="https://dontdrinkthewater.shop" target="_blank">Don't Drink The Water</a>
+          <a href="https://dontdrinkthewater.shop" target="_blank"
+            >Don't Drink The Water</a
+          >
           <Icon
             name="material-symbols:arrow-outward"
             size="1rem"
@@ -71,9 +96,42 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { gsap } from 'gsap';
+
+const timeline = gsap.timeline();
+
+onMounted(() => {
+  timeline.fromTo(
+    '.title > span > span',
+    {
+      'will-change': 'opacity, transform',
+      opacity: 1,
+      yPercent: 250,
+    },
+    {
+      duration: 0.5,
+      opacity: 1,
+      yPercent: 0,
+      stagger: { each: 0.03 },
+      ease: 'power2.out',
+    }
+  );
+});
+</script>
 
 <style scoped>
+.title > span {
+  position: relative;
+  display: flex;
+  gap: -1rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
 .full-page {
   padding: 1rem 0;
 }
