@@ -1,0 +1,65 @@
+.projects-cont {
+  width: 100%;
+}
+
+.projects-holder {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: solid rgb(var(--text));
+  border-width: var(--border-width) 0 0 0;
+  transition: border-color 0.5s;
+}
+
+.project {
+  width: 100%;
+  border: solid rgb(var(--text));
+  border-width: 0 0 var(--border-width) 0;
+  transition: border-color 0.5s;
+  display: flex;
+  flex-direction: row;
+  max-height: 6vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.project a {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 4.75vw;
+  text-decoration: none;
+  width: 100%;
+}
+
+.project-arrow {
+  height: 100%;
+  position: absolute;
+  right: -5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(var(--text));
+  transition: color 0.5s;
+}
+
+.project:hover {
+  background-color: rgb(var(--text));
+  transition: background-color 0.25s;
+}
+
+.project:hover a {
+  color: rgb(var(--bg));
+  transition: color 0.25s;
+}
+
+.project:hover .project-arrow {
+  transform: translateX(-5vw);
+  color: rgb(var(--bg));
+  transition: transform 0.25s, color 0.25s;
+}
+
+@media screen and (max-width: 768px) {
+  .project-arrow {
+    right: 0;
+  }
+}

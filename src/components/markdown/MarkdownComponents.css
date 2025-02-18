@@ -1,0 +1,152 @@
+.md-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(65vh, 1fr));
+  gap: 1rem;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.md-grid img {
+  width: 100%;
+  height: auto;
+}
+
+.md-spacer {
+  height: 2rem;
+}
+
+.img-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.img-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+}
+
+.img-cont img {
+  max-width: 100%;
+  max-height: 90vh;
+}
+
+.img-caption {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  text-align: left;
+  width: fit-content;
+  opacity: 0.75;
+}
+
+.video-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.video-holder video {
+  max-width: 135vh;
+  width: 100%;
+  max-height: 90vh;
+  height: auto;
+}
+
+/* Prose styles for markdown content */
+h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 5rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+a {
+  color: rgb(var(--link));
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  background-color: rgba(var(--text), 0.1);
+  transition: background-color 0.5s;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: scroll;
+  margin: 1rem 0;
+}
+
+pre code {
+  color: rgb(var(--text));
+  transition: color 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .md-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  
+  h4 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  
+  h5 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+  
+  .video-holder video,
+  .img-cont img {
+    max-width: 100%;
+  }
+}
