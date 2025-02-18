@@ -7,8 +7,18 @@ interface GridProps {
   row?: string;
 }
 
-export const Grid = ({ children }: GridProps) => {
-  return <div className="md-grid">{children}</div>;
+export const Grid = ({ children, col = '1', row = '1' }: GridProps) => {
+  return (
+    <div 
+      className="md-grid"
+      style={{
+        gridTemplateColumns: `repeat(${col}, 1fr)`,
+        gridTemplateRows: `repeat(${row}, auto)`
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export const Spacer = () => {

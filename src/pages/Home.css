@@ -41,6 +41,7 @@
   flex-direction: row;
 }
 
+
 .three-col {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

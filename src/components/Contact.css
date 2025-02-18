@@ -17,7 +17,7 @@
   border-width: 0 0 var(--border-width) 0;
   transition: border-color 0.5s;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
   overflow-x: hidden;
 }
 
@@ -52,8 +52,8 @@
 }
 
 .contact:hover {
-  background-color: rgb(var(--text));
-  color: rgb(var(--bg));
+  background-color: rgb(var(--text)) !important;
+  color: rgb(var(--bg)) !important;
   transition: background-color 0.25s, color 0.25s;
 }
 

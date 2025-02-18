@@ -8,9 +8,10 @@ date: 07-2023
 
 <video src="/videos/do-you-exist/000.mp4"  muted autoplay loop></video>
 
-:Spacer
+::Spacer
 
-::Grid
+::Grid2x3
+
 ![Wide shot in situ](/images/do-you-exist/001-min.png)
 
 ![Output receipt](/images/do-you-exist/002-min.png)
@@ -22,9 +23,10 @@ date: 07-2023
 ![Printed receipt](/images/do-you-exist/006-min.png)
 
 ![ ](/images/do-you-exist/007-min.png)
+
 ::
 
-:Spacer
+::Spacer
 
 This project is an exploration into data privacy and the digital footprint we leave behind. The project is designed to raise awareness about the amount of information that is available about us online and to encourage users to think about their digital footprint. The data is generated, but designed to look like it is real. It uses facial recognition to serve the same data to each user.
 

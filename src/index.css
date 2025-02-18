@@ -83,7 +83,7 @@ button:focus-visible {
 }
 
 .text-colour {
-  color: rgb(var(--text));
+  color: rgb(var(--text)) !important;
   transition: color 0.5s;
 }
 

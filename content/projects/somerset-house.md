@@ -12,13 +12,13 @@ Working with an Artist named [Louis Morlæ](https://www.roseeaston.com/artists/l
 
 Given a model of feet, I was challenged with posing and sculpting the feet in a way that would cement them into the wooden case; grounding their existence in the physical world. The feet were then split up and 3D printed, to be reconstructed in the wooden case.
 
-:spacer
+::Spacer
 
 ![© Jack Elliot Edwards | Feet](/images/somerset-house/Louis%20Morlæ-Ref-3931.jpg)
 
-:spacer
+::Spacer
 
-::Grid
+::Grid2x1
 
 ![© Jack Elliot Edwards](/images/somerset-house/Louis%20Morlæ-Ref-3935.jpg)
 
@@ -30,15 +30,15 @@ Given a model of feet, I was challenged with posing and sculpting the feet in a 
 
 As part of this project, I created a fully interactive chatbot called Mother. Its main task was to guide the user through a series of questions. The aim of the questions is to place the user in a job role in a post-AI dystopian future grounded within Somerset House. Mother is also trying to get private information from the user such as banking details and passwords.
 
-:spacer
+::Spacer
 
 ![© Jack Elliot Edwards | 'Mother'](/images/somerset-house/LouisMorlæ_Ref-7434-63.jpg)
 
-:spacer
+::Spacer
 
 I developed the software and programmed a custom keyboard that spells out "The lazy major was fixing cupids broken quiver." The UI is a Vue website with the Qwen2.5 LLM model running on a local KoboldAI API backend. Chat logs are saved to a SQLite file.
 
-::Grid
+::Grid2x2
 
 ![© Jack Elliot Edwards](/images/somerset-house/Louis%20Morlæ-Ref-3921.jpg)
 
@@ -52,7 +52,7 @@ I developed the software and programmed a custom keyboard that spells out "The l
 
 The system runs on Linux, starting at boot with systemd services. A smaller screen displays output from a camera above the entry door, monitoring user interactions with Mother.
 
-:spacer
+::Spacer
 
 ![© Jack Elliot Edwards | Mother and Feet in situ](/images/somerset-house/Louis%20Morlæ-Ref-4000-4.jpg)
 
@@ -60,11 +60,13 @@ The system runs on Linux, starting at boot with systemd services. A smaller scre
 
 ![© Jack Elliot Edwards | Two 'creatures' in display cases](/images/somerset-house/Louis%20Morlæ-Ref-4033.jpg)
 
-:spacer
-The installation also features a robotic eye that responds to viewer proximity using an ultrasonic sensor, adding another layer of interactivity to the exhibition space.
-:spacer
+::Spacer
 
-::Grid
+The installation also features a robotic eye that responds to viewer proximity using an ultrasonic sensor, adding another layer of interactivity to the exhibition space.
+
+::Spacer
+
+::Grid2x1
 
 ![© Jack Elliot Edwards | Animatronic eye](/images/somerset-house/LouisMorlæ_Ref-7423.jpg)
 

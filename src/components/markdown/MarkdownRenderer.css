@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.customGridElement p {
+  margin: 0;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

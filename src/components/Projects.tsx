@@ -15,9 +15,10 @@ export const Projects = () => {
     const loadProjects = async () => {
       try {
         const projectData = await getProjects();
+        console.log(projectData)
         setProjects(projectData);
       } catch (err) {
-        setError('Failed to load projects');
+        setError(`Failed to load projects. ${err}`);
       } finally {
         setLoading(false);
       }

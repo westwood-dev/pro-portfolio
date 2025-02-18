@@ -1,4 +1,8 @@
+import { Buffer } from 'buffer';
 import matter from 'gray-matter';
+
+// Add Buffer to global scope
+globalThis.Buffer = Buffer;
 
 export interface ProjectMeta {
   title: string;
@@ -11,23 +15,28 @@ export interface Project extends ProjectMeta {
   slug: string;
 }
 
+interface MarkdownModule {
+  default: string;
+  [Symbol.toStringTag]: 'Module';
+}
+
 // Import all markdown files from the content directory
 const importMarkdown = async () => {
-  const projectModules = import.meta.glob('../../content/projects/*.md', { eager: true, query: '?raw' });
+  const projectModules = import.meta.glob<MarkdownModule>('../../content/projects/*.md', { eager: true, query: '?raw' });
   const projects: Record<string, string> = {};
-  
+
   for (const path in projectModules) {
     const slug = path.split('/').pop()?.replace('.md', '') || '';
-    projects[slug] = projectModules[path] as string;
+    projects[slug] = projectModules[path].default;
   }
-  
+
   return projects;
 };
 
 // Function to get all projects
 export async function getProjects(): Promise<Project[]> {
   const projectFiles = await importMarkdown();
-  
+ 
   const projects = Object.entries(projectFiles).map(([slug, content]) => {
     const { data, content: markdownContent } = parseMarkdown(content);
     return {
@@ -36,7 +45,7 @@ export async function getProjects(): Promise<Project[]> {
       slug,
     };
   });
-  
+
   return projects.sort((a, b) => {
     if (a.date === 'wip') return -1;
     if (b.date === 'wip') return 1;
