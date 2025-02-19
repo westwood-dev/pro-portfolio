@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.markdown-content a {
+  color: rgb(var(--link)) !important;
+}
+
 .customGridElement p {
   margin: 0;
 }

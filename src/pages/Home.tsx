@@ -22,21 +22,21 @@ export const Home = () => {
           </div>
           <div className="client-links-cont">
             <div className="client-link">
-              <a class='text-colour' href="https://www.somersethouse.org.uk/somerset-house-studios" target="_blank" rel="noopener noreferrer">
+              <a className='text-colour' href="https://www.somersethouse.org.uk/somerset-house-studios" target="_blank" rel="noopener noreferrer">
                 Somerset House Studios
               </a>
               <Icon icon="material-symbols:arrow-outward" width="1rem" className="icon-outward" />
             </div>
             <span>---</span>
             <div className="client-link">
-              <a class='text-colour' href="https://www.arts.ac.uk/creative-computing-institute" target="_blank" rel="noopener noreferrer">
+              <a className='text-colour' href="https://www.arts.ac.uk/creative-computing-institute" target="_blank" rel="noopener noreferrer">
                 Creative Computing Institute
               </a>
               <Icon icon="material-symbols:arrow-outward" width="1rem" className="icon-outward" />
             </div>
             <span>---</span>
             <div className="client-link">
-              <a class='text-colour' href="https://dontdrinkthewater.shop" target="_blank" rel="noopener noreferrer">
+              <a className='text-colour' href="https://dontdrinkthewater.shop" target="_blank" rel="noopener noreferrer">
                 Don't Drink The Water
               </a>
               <Icon icon="material-symbols:arrow-outward" width="1rem" className="icon-outward" />
