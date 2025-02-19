@@ -19,7 +19,7 @@ export const MarkdownRenderer = ({ content, isLoading }: MarkdownRendererProps) 
   }
 
   const customComponents = {
-    // Grid: Grid,
+    grid: Grid,
     spacer: Spacer,
     img: Image,
     video: Video,
@@ -41,7 +41,6 @@ export const MarkdownRenderer = ({ content, isLoading }: MarkdownRendererProps) 
         )}
       </a>
     ),
-    grid: Grid
   };
 
   // Replace custom markdown syntax with custom components

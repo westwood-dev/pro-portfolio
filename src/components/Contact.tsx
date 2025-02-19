@@ -42,14 +42,13 @@ export const Contact = () => {
       </a>
       <a
         href="/William-Westwood-CV.pdf"
-        target="_blank"
         className="contact text-colour"
         rel="noopener noreferrer"
       >
         <span className="contact-label">CV</span>
         <span className="contact-text">Download</span>
         <div className="contact-arrow">
-          <Icon icon="material-symbols:arrow-outward" />
+          <Icon icon="material-symbols:arrow-forward" />
         </div>
       </a>
     </div>
