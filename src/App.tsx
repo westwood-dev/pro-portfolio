@@ -35,7 +35,7 @@ function App() {
       <div className={`bg-colour text-colour site-cont ${isThemeReady ? 'theme-ready' : 'theme-loading'}`}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project/:title" element={<ProjectDetail />} />
+            <Route path="/project/:title" element={<ProjectDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <div className="footer-cont">

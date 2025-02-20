@@ -2,27 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://williamwestwood.com</loc>
-    <lastmod>2025-02-19T11:36:38.130Z</lastmod>
+    <lastmod>2025-02-20T09:38:48.111Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://williamwestwood.com/project/do-you-exist</loc>
-    <lastmod>2025-02-19T11:36:38.130Z</lastmod>
+    <lastmod>2025-02-20T09:38:48.111Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://williamwestwood.com/project/dont-drink-the-water</loc>
-    <lastmod>2025-02-19T11:36:38.130Z</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://williamwestwood.com/project/llm-database-search</loc>
-    <lastmod>2025-02-19T11:36:38.130Z</lastmod>
+    <lastmod>2025-02-20T09:38:48.111Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://williamwestwood.com/project/somerset-house</loc>
-    <lastmod>2025-02-19T11:36:38.130Z</lastmod>
+    <lastmod>2025-02-20T09:38:48.111Z</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

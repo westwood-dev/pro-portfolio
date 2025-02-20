@@ -3,11 +3,11 @@ import './MarkdownComponents.css';
 
 interface GridProps {
   children: ReactNode;
-  col?: string;
-  row?: string;
+  cols?: string;
+  rows?: string;
 }
 
-export const Grid = ({ children, col, row }: GridProps) => {
+export const Grid = ({ children, cols, rows }: GridProps) => {
 
   if (Array.isArray(children)) {
     const filtered = children.filter((child) => {
@@ -47,8 +47,8 @@ export const Grid = ({ children, col, row }: GridProps) => {
     <div 
       className="md-grid"
       style={{
-        gridTemplateColumns: `repeat(${col}, 1fr)`,
-        gridTemplateRows: `repeat(${row}, auto)`
+        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gridTemplateRows: `repeat(${rows}, auto)`
       }}
     >
       {children}

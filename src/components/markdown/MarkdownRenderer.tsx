@@ -7,6 +7,7 @@ import Image from './Image';
 import Video from './Video';
 import Loading from '../Loading';
 import './MarkdownRenderer.css';
+import { ReactNode } from 'react';
 
 interface MarkdownRendererProps {
   content: string;
@@ -23,10 +24,10 @@ export const MarkdownRenderer = ({ content, isLoading }: MarkdownRendererProps) 
     spacer: Spacer,
     img: Image,
     video: Video,
-    h2: ({ children }: any) => <h2 className="text-colour">{children}</h2>,
-    h3: ({ children }: any) => <h3 className="text-colour">{children}</h3>,
-    h4: ({ children }: any) => <h4 className="text-colour">{children}</h4>,
-    h5: ({ children }: any) => <h5 className="text-colour">{children}</h5>,
+    h2: ({ children }: {children: ReactNode}) => <h2 className="text-colour">{children}</h2>,
+    h3: ({ children }: {children: ReactNode}) => <h3 className="text-colour">{children}</h3>,
+    h4: ({ children }: {children: ReactNode}) => <h4 className="text-colour">{children}</h4>,
+    h5: ({ children }: {children: ReactNode}) => <h5 className="text-colour">{children}</h5>,
     a: ({ href, children, ...props }: React.ComponentPropsWithRef<'a'>) => (
       <a 
         {...props}
@@ -47,7 +48,7 @@ export const MarkdownRenderer = ({ content, isLoading }: MarkdownRendererProps) 
   content = content.replace(/(?<=(::Grid[\dx]+)([^:].+[\n]+)+):{2}(?=\n)/g, '</Grid>')
   content = content.replace(/::Grid(?<cols>\d)x(?<rows>\d)/g, '<Grid cols="$<cols>" rows="$<rows>">');
   content = content.replace(/::Spacer/g, '<br />');
-  //console.log(content);
+  // console.log(content);
 
   return (
     <div className="markdown-content text-colour">
