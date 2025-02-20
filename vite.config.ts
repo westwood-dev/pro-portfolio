@@ -35,6 +35,14 @@ export default defineConfig(() => ({
     rollupOptions: {
       input: {
         main: '/index.html'
+      },
+      output: {
+        manualChunks(id) {
+          // Put MD files in a separate chunk
+          if (id.includes('.md')) {
+            return 'md'
+          }
+        }
       }
     }
   },

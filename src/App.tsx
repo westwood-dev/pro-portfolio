@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 import { useTheme } from './hooks/useTheme';
+import ScrollToTop from './components/ScrollToTop';
 import ThemeChanger from './components/ThemeChanger';
 import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <Router basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <div className={`bg-colour text-colour site-cont ${isThemeReady ? 'theme-ready' : 'theme-loading'}`}>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { ThemeChanger } from '../../components/ThemeChanger';
+import ThemeChanger from '../../components/ThemeChanger';
 import { themes } from '../../utils/theme';
 
 // Mock Icon component

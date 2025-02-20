@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { MarkdownRenderer } from '../../../components/markdown/MarkdownRenderer';
+import MarkdownRenderer from '../../../components/markdown/MarkdownRenderer';
 
 // Mock components
 jest.mock('@iconify/react', () => ({

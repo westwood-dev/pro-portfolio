@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { Projects } from '../../components/Projects';
+import Projects from '../../components/Projects';
 import { getProjects } from '../../utils/markdown';
 
 // Mock dependencies
