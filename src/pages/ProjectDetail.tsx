@@ -2,10 +2,10 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import { getProject, type Project } from '../utils/markdown';
-import { MarkdownRenderer } from '../components/markdown/MarkdownRenderer';
-import { ImagePreloader } from '../components/ImagePreloader';
-import Loading from '../components/Loading';
-import { SEO } from '../components/SEO';
+import  MarkdownRenderer  from '../components/markdown/MarkdownRenderer';
+import { ImagePreloader } from '../components/ImagePreloader/ImagePreloader';
+import Loading from '../components/Loading/Loading';
+import { SEO } from '../components/SEO/SEO';
 import './ProjectDetail.css';
 
 export const ProjectDetail = () => {

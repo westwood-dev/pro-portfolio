@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
-import { getProjects, type Project } from '../utils/markdown';
-import Loading from './Loading';
+import { getProjects, type Project } from '../../utils/markdown';
+import Loading from '../Loading/Loading';
 import './Projects.css';
 
 export const Projects = () => {

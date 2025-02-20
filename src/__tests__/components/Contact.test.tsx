@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Contact } from '../../components/Contact';
+import { Contact } from '../../components/Contact/Contact';
 
 // Mock IconifyIcon component
 jest.mock('@iconify/react', () => ({

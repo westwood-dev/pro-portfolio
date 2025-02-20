@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import { themes } from '../utils/theme';
+import { themes } from '../../utils/theme';
 
 interface ThemeChangerProps {
   currentTheme: string;

@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import Projects from '../components/Projects';
-import Contact from '../components/Contact';
-import { SEO } from '../components/SEO';
+import Contact from '../components/Contact/Contact';
+import { SEO } from '../components/SEO/SEO';
 import './Home.css';
 
 export const Home = () => {

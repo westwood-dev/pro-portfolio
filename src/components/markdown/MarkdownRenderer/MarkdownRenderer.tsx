@@ -2,10 +2,10 @@ import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Icon } from '@iconify/react';
-import { Grid, Spacer } from './MarkdownComponents';
-import Image from './Image';
-import Video from './Video';
-import Loading from '../Loading';
+import { Grid, Spacer } from '../MarkdownComponents';
+import Image from '../Image/Image';
+import Video from '../Video';
+import Loading from '../../Loading/Loading';
 import './MarkdownRenderer.css';
 import { ReactNode } from 'react';
 

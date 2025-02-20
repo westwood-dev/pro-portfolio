@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { ImagePreloader } from '../../components/ImagePreloader';
+import { ImagePreloader } from '../../components/ImagePreloader/ImagePreloader';
 
 jest.useFakeTimers();
 

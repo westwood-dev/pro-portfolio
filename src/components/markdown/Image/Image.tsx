@@ -18,8 +18,8 @@ export const Image = ({ src, alt, width, height }: ImageProps) => {
           width={width}
           height={height}
         />
-        {alt && alt.length > 0 && (
-          <span className="img-caption">{alt}</span>
+        {alt && (
+          <span className="img-caption">{alt.length > 1 ? alt : <br />}</span>
         )}
       </div>
     </div>
