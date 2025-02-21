@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgb(var(--text));
+  background-color: rgb(var(--bg));
+  transition: color 0.5s, background 0.5s;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --text: 0, 0, 0;
+  --bg: 242, 67, 58;
+  --border-width: 0.25rem;
+  --link: 255, 255, 255;
+}
+
+/* Prevent theme flash during load */
+:root {
+  color-scheme: light dark;
+  --text: 0, 0, 0;
+  --bg: 242, 67, 58;
+  --link: 255, 255, 255;
+}
+
+.theme {
+  color: rgb(var(--text));
+  background-color: rgb(var(--bg));
+  transition: color 0.5s, background 0.5s;
+}
+
+.theme-invert {
+  color: rgb(var(--bg));
+  background-color: rgb(var(--text));
+  transition: color 0.5s, background 0.5s;
+}
+
+/* Theme Controls */
+.theme-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.theme-selector {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  transition: color 0.5s, background 0.5s;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.theme-change-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Hide content until theme is loaded */
+.theme-loading {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show content once theme is ready */
+.theme-ready {
+  opacity: 1;
+  transition: opacity 0.3s, color 0.5s, background-color 0.5s;
+}
+
+/* Home Styling */
+
+.title {
+  font-size: calc(calc(100vw - 4rem) / 6.15);
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  align-self: flex-start;
+  letter-spacing: -0.4vw;
+  line-height: calc(100vw / 7.5);
+}
