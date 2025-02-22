@@ -1,9 +1,8 @@
 'use client';
 
 import { Icon } from '@iconify/react';
-import Work from '@/components/Work';
+import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
-import generateMetadata from '@/components/SEO';
 import { useTheme } from '@/hooks/useTheme';
 import { useEffect, useState } from 'react';
 import ThemeChanger from '@/components/ThemeChanger';
@@ -54,10 +53,10 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <Section title="Work">
-        <Work />
+      <Section title="Projects.">
+        <Projects />
       </Section>
-      <Section title="Contact">
+      <Section title="Contact.">
         <Contact />
       </Section>
       <div className="flex flex-row w-full justify-between items-center">

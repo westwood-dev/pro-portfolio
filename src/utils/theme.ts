@@ -37,7 +37,7 @@ class Theme {
   private static STORAGE_KEY = 'selected-theme';
 
   constructor(defaultTheme = 'red') {
-    const stored = localStorage.getItem(Theme.STORAGE_KEY);
+    const stored = typeof window !== "undefined" ? localStorage.getItem(Theme.STORAGE_KEY) : null;
     this.theme = themes[stored || defaultTheme];
     this.set(stored || defaultTheme);
   }
@@ -49,6 +49,7 @@ class Theme {
   set(name: string) {
     this.theme = themes[name];
     const { text, bg, link } = themes[name];
+    if (typeof document === "undefined") return;
     document.documentElement.style.setProperty('--text', text);
     document.documentElement.style.setProperty('--bg', bg);
     document.documentElement.style.setProperty('--link', link);
