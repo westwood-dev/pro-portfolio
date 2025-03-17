@@ -2,20 +2,13 @@
   <div>
     <div class="projects-cont" ref="projectsCont">
       <div class="projects-holder">
-        <div v-for="project in data" class="project">
-          <NuxtLink
-            :to="'/project/' + project.title"
-            class="project-title text-colour"
-          >
+        <div v-for="project in projects" class="project">
+          <NuxtLink :to="'/project/' + project.title" class="project-title text-colour">
             {{
-              (project.title?.length || 0) <= 30
-                ? project.title
-                : project.title?.substring(0, 29) + '...'
-            }}
-          </NuxtLink>
-          <div class="project-arrow">
-            <Icon name="material-symbols:arrow-forward" size="5vw" />
-          </div>
+              (project.title?.length || 0) <= 30 ? project.title : project.title?.substring(0, 29) + '...' }} </NuxtLink>
+              <div class="project-arrow">
+                <Icon name="material-symbols:arrow-forward" size="5vw" />
+              </div>
         </div>
       </div>
     </div>
@@ -23,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-const { data } = await useAsyncData('projects', () =>
-  queryContent('projects').sort({ date: -1 }).find()
+const { data: projects } = await useAsyncData('projects', () => 
+  queryCollection('projects').select('title', 'date').where('date', '<>', 'wip').all()
 );
 </script>
 

@@ -54,11 +54,13 @@
 </template>
 
 <script setup lang="ts">
+
 const { params } = useRoute();
+
 const { data } = await useAsyncData(String(params.title), () =>
-  queryContent('projects')
-    .where({ title: String(params.title) })
-    .findOne()
+  queryCollection('projects')
+    .where( 'title', '=', String(params.title) )
+    .first()
 );
 
 // Add this error handling
