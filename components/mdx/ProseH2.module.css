@@ -1,0 +1,14 @@
+.h2 {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 5rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .h2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}

@@ -1,0 +1,31 @@
+.imgHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.imgCont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+}
+
+.imgCont img {
+  max-width: 100%;
+  max-height: 90vh;
+}
+
+.imgCaption {
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+  padding-left: 0.6rem;
+  border-left: solid 2px rgb(var(--text));
+  text-align: left;
+  width: fit-content;
+  opacity: 0.55;
+  transition: border-color 0.5s;
+  line-height: 1.4;
+}

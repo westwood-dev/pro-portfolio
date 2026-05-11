@@ -1,0 +1,26 @@
+.codeCont {
+  margin: 0.5rem 0;
+}
+
+.codeLang {
+  margin-bottom: -0.8rem;
+  color: rgba(var(--text), 0.5);
+  transition: color 0.5s;
+}
+
+.codeCont pre {
+  background-color: rgba(var(--text), 0.1);
+  transition: background-color 0.5s;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: scroll;
+}
+
+.codeCont pre code {
+  color: rgb(var(--text));
+  transition: color 0.5s;
+}
+
+.codeCont pre code .line {
+  display: block;
+}

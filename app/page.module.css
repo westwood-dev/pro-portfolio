@@ -1,0 +1,60 @@
+.fullPage {
+  padding: 1rem 0;
+}
+
+.topLinksCont {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.topLinksCont span,
+.topLinksCont a {
+  padding: 0.5rem 0;
+  display: block;
+  text-decoration: none;
+  transition: color 0.5s;
+  font-size: 1.5rem;
+  color: rgb(var(--text));
+}
+
+.topLinksCont a:hover {
+  text-decoration: underline;
+}
+
+.clientLinksCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.label {
+  color: rgba(var(--text), 0.5);
+}
+
+.iconOutward {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .topLinksCont span,
+  .topLinksCont a {
+    font-size: 1rem;
+  }
+
+  .clientLinksCont {
+    flex-direction: column;
+  }
+
+  .clientLinksCont > span {
+    display: none;
+  }
+
+  .clientLinksCont a {
+    padding: 0;
+  }
+
+  .iconOutward {
+    margin-top: 0;
+  }
+}

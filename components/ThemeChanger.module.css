@@ -1,0 +1,24 @@
+.themeControls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.themeSelector {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+  transition: color 0.5s, background 0.5s;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.themeChangeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+}

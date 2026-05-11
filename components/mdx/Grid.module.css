@@ -1,0 +1,34 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/* MDX wraps each image in a <p> — remove its margin so it becomes a clean grid item */
+.grid > p {
+  margin: 0;
+}
+
+/* Make ProseImg fill the grid cell */
+.grid :global(.img-holder) {
+  align-items: flex-start;
+}
+
+.grid :global(.img-cont) {
+  width: 100%;
+}
+
+.grid :global(.img-cont) img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+}
