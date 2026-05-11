@@ -1,0 +1,10 @@
+.h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.75rem;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  border-top: solid var(--border-width) rgb(var(--text));
+  padding-top: 1.5rem;
+  transition: border-color 0.5s;
+}

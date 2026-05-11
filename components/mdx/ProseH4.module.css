@@ -1,0 +1,9 @@
+.h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}

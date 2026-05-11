@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(var(--bg));
+}
+
+.container h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 250px;
+  text-align: center;
+  margin: 0;
+  margin-bottom: -30px;
+  padding: 0;
+}
+
+.container p {
+  margin: 0.5rem;
+  font-weight: 500;
+}
+
+.container button {
+  border: none;
+  color: rgb(var(--link));
+  background: none;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.container button:hover {
+  text-decoration: underline;
+}
