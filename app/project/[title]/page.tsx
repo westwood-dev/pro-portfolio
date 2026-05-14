@@ -13,7 +13,7 @@ interface Props {
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
-  return projects.map((p) => ({ title: encodeURIComponent(p.title) }));
+  return projects.map((p) => ({ title: p.title }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
