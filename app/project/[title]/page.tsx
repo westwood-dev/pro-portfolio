@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypeImgSizeDecoded from '../../../lib/rehype-img-size-decoded';
 import { getAllProjects, getProjectByTitle } from '../../../lib/projects';
 import { mdxComponents } from '../../../components/mdx';
 import styles from './page.module.css';
@@ -60,7 +61,15 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       )}
       <div className={styles.contentWrapper}>
-        <MDXRemote source={project!.content} components={mdxComponents} />
+        <MDXRemote
+          source={project!.content}
+          components={mdxComponents}
+          options={{
+            mdxOptions: {
+              rehypePlugins: [[rehypeImgSizeDecoded, { dir: 'public' }]],
+            },
+          }}
+        />
       </div>
     </div>
   );

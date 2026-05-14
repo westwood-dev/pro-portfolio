@@ -16,6 +16,13 @@
 .imgCont img {
   max-width: 100%;
   max-height: 90vh;
+  display: block;
+  animation: imgFadeIn 0.4s ease both;
+}
+
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .imgCaption {
