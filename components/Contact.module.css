@@ -13,6 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-height: clamp(44px, 6vw, 96px);
   border: solid rgb(var(--text));
   border-width: 0 0 var(--border-width) 0;
   transition: border-color 0.5s;
@@ -24,7 +25,7 @@
 .contactLabel {
   font-weight: 500;
   margin: 0;
-  font-size: 4.75vw;
+  font-size: clamp(1rem, 4.75vw, 3.5rem);
   text-decoration: none;
   color: rgba(var(--text), 0.5);
   transition: color 0.5s;
@@ -32,13 +33,13 @@
 
 .contactText {
   font-weight: 300;
-  font-size: 4.75vw;
+  font-size: clamp(1rem, 4.75vw, 3.5rem);
   transition: transform 0.25s, color 0.5s;
 }
 
 .contactArrow {
   font-weight: 400;
-  font-size: 4.75vw;
+  font-size: clamp(1rem, 4.75vw, 3.5rem);
   margin: 0;
   text-decoration: none;
   position: absolute;
@@ -73,10 +74,5 @@
 @media screen and (max-width: 768px) {
   .contactArrow {
     right: 0;
-  }
-
-  .contactText {
-    font-size: 1rem;
-    transform: translateX(-5vw);
   }
 }

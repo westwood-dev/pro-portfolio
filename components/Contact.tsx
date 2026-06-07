@@ -21,7 +21,7 @@ export function Contact() {
         >
           <span className={styles.contactLabel}>{label}</span>
           <span className={styles.contactText}>{text}</span>
-          <div className={styles.contactArrow}>
+          <div className={styles.contactArrow} aria-hidden="true">
             <Icon icon="material-symbols:arrow-outward" />
           </div>
         </a>

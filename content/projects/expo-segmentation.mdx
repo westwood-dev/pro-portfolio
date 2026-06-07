@@ -1,0 +1,50 @@
+---
+title: expo-segmentation
+description: Native background removal and subject segmentation for Expo and React Native, published on npm.
+date: 2025
+tags: [npm, open-source, react-native, expo, ios, android]
+---
+
+### Native subject segmentation for Expo — my first published npm package
+
+expo-segmentation is an open-source Expo module that brings native background removal and subject segmentation to React Native apps. On iOS it uses Apple Vision's `VNGenerateForegroundInstanceMaskRequest` (iOS 17+); on Android it uses Google ML Kit Subject Segmentation (API 24+). The web platform returns `isAvailable() → false` gracefully.
+
+
+```bash
+npm install expo-segmentation
+```
+
+#### API
+
+The module exposes three methods:
+
+- **`isAvailable()`** — synchronous platform check before loading any heavy model
+- **`detectSubjects(uri)`** — runs the segmentation model and returns one `SubjectInfo` entry per detected foreground subject, each with a preview PNG URI
+- **`removeBackground(uri, options?)`** — crops and returns transparent-background PNGs for the requested subjects, with optional greyscale mask output
+
+```tsx
+const subjects = await ExpoSegmentation.detectSubjects(uri);
+// [{ index: 0, previewUri: 'file://...' }, ...]
+
+const cutouts = await ExpoSegmentation.removeBackground(uri, {
+  subjectIndices: [0],
+  returnMask: false,
+});
+// [{ uri, width, height, cropRect: { x, y, width, height } }]
+```
+
+#### Platform support
+
+| Platform | Engine | Min version |
+|----------|--------|-------------|
+| iOS | Apple Vision | iOS 17 |
+| Android | Google ML Kit | API 24 (Android 7.0) |
+| Web | — | `isAvailable()` returns `false` |
+
+#### Notes
+
+- Output is written to the device's temporary cache directory
+- Images 12 MP+ are automatically downscaled before processing to keep memory usage reasonable
+- Built as a first-class Expo module — works with EAS Build and development builds; not compatible with Expo Go
+
+The module grew out of the background removal pipeline built for [Hanger](/project/hanger), extracted and published so other Expo projects can use it directly.

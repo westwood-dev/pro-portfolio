@@ -1,13 +1,13 @@
 .grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   max-width: 100%;
   margin: 1rem 0;
 }
 
-/* MDX wraps each image in a <p> — remove its margin so it becomes a clean grid item */
-.grid > p {
+/* MDX wraps each image in a div (ProseP) — remove its margin so it becomes a clean grid item */
+.grid > div {
   margin: 0;
 }
 

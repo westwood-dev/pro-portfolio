@@ -12,7 +12,7 @@ export function ProseImg({ src = '', alt = '', width, height }: Props) {
     <div className={`${styles.imgHolder} img-holder`}>
       <div className={`${styles.imgCont} img-cont`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src} alt={alt} width={width} height={height} />
+        <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
         {alt.trim().length > 0 && (
           <span className={styles.imgCaption}>{alt}</span>
         )}

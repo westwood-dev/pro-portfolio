@@ -1,0 +1,31 @@
+---
+title: Hanger
+description: iOS app for managing your wardrobe and building outfits.
+date: 2025
+hidden: true
+---
+
+### iOS wardrobe management and outfit builder
+
+{/* Add hero image/video here */}
+
+<Spacer />
+
+Hanger is an iOS app that helps you organise your wardrobe and build outfits. Add clothing items by photographing them — the app automatically removes the background and categorises each piece. From there, arrange items on a canvas to plan outfits, get weather-aware suggestions, and track what you actually wear.
+
+<Spacer />
+
+#### Features
+
+- **Wardrobe management** — photograph items, auto-remove backgrounds, tag by category and season
+- **Outfit canvas** — drag and drop items to compose and save outfits
+- **Smart suggestions** — weather and season-aware outfit recommendations
+- **Share to add** — share images directly from Photos or Safari into the app
+
+#### Tech stack
+
+- React Native / Expo (iOS)
+- Supabase (auth, database, storage)
+- TensorFlow Lite for on-device ML (background removal, clothing classification)
+- MMKV for local persistence with per-user isolation
+- Offline queue for wardrobe edits without connectivity

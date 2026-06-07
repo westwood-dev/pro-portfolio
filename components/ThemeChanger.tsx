@@ -14,17 +14,18 @@ export function ThemeChanger({ currentTheme, showSelector, onChangeTheme, onSele
   return (
     <div className={styles.themeControls}>
       {!showSelector && (
-        <div className={styles.themeChangeButton} onClick={onChangeTheme}>
+        <button className={styles.themeChangeButton} onClick={onChangeTheme} aria-label="Toggle theme">
           <Icon
             icon={currentTheme === 'dark' ? 'material-symbols:light-mode' : 'material-symbols:dark-mode'}
           />
-        </div>
+        </button>
       )}
       {showSelector && (
         <select
           className={styles.themeSelector}
           value={currentTheme}
           onChange={(e) => onSelectTheme(e.target.value)}
+          aria-label="Select theme"
         >
           {Object.keys(themes).map((name) => (
             <option key={name} value={name}>

@@ -6,6 +6,7 @@ import { ProseP } from './ProseP';
 import { ProseA } from './ProseA';
 import { ProsePre } from './ProsePre';
 import { ProseImg } from './ProseImg';
+import { ProseTable } from './ProseTable';
 import { Grid } from './Grid';
 import { Spacer } from './Spacer';
 
@@ -18,6 +19,7 @@ export const mdxComponents = {
   a: ProseA,
   pre: ProsePre,
   img: ProseImg,
+  table: ProseTable,
   Grid,
   Spacer,
 };

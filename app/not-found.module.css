@@ -3,14 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100svh;
   background-color: rgb(var(--bg));
 }
 
 .container h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 900;
-  font-size: 250px;
+  font-size: clamp(120px, 33vw, 250px);
   text-align: center;
   margin: 0;
   margin-bottom: -30px;
@@ -26,7 +26,7 @@
   border: none;
   color: rgb(var(--link));
   background: none;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   cursor: pointer;
 }
 

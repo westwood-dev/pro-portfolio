@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   background-color: rgb(var(--text));
   transition: background-color 0.5s;
 }
@@ -14,10 +12,10 @@ body {
 }
 
 :root {
-  --text: 0, 0, 0;
-  --bg: 255, 255, 255;
+  --text: 14, 12, 11;
+  --bg: 253, 251, 249;
   --border-width: 0.25rem;
-  --link: 193, 18, 31;
+  --link: 185, 14, 26;
 }
 
 .text-colour {
@@ -46,12 +44,13 @@ body {
 }
 
 .title {
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: calc(calc(100vw - 4rem) / 6.3);
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
   align-self: flex-start;
-  letter-spacing: -0.4vw;
+  letter-spacing: -0.02em;
   line-height: calc(100vw / 7.5);
 }
 
@@ -71,6 +70,33 @@ body {
   text-decoration: underline;
 }
 
+/* Shiki dual-theme syntax highlighting */
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  color: var(--shiki-light);
+}
+
+:root[data-color-scheme="dark"] code[data-theme*=" "],
+:root[data-color-scheme="dark"] code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgb(var(--text));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
   :root {
     --border-width: 0.15rem;
@@ -78,6 +104,11 @@ body {
 
   .site-cont {
     padding: 1rem;
+  }
+
+  .title {
+    font-size: calc(calc(100vw - 2rem) / 6.3);
+    line-height: calc(100vw / 7.5);
   }
 
   .footer-cont {

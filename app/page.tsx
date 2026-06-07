@@ -40,42 +40,42 @@ export default function Home() {
               <a href="https://ambientworks.io" target="_blank" rel="noopener noreferrer">
                 Ambient Works
               </a>
-              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} />
+              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} aria-hidden="true" />
             </div>
-            <span>---</span>
+            <span aria-hidden="true">---</span>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               <a href="https://www.somersethouse.org.uk/somerset-house-studios" target="_blank" rel="noopener noreferrer">
                 Somerset House Studios
               </a>
-              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} />
+              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} aria-hidden="true" />
             </div>
-            <span>---</span>
+            <span aria-hidden="true">---</span>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               <a href="https://www.arts.ac.uk/creative-computing-institute" target="_blank" rel="noopener noreferrer">
                 Creative Computing Institute
               </a>
-              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} />
+              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} aria-hidden="true" />
             </div>
-            <span>---</span>
+            <span aria-hidden="true">---</span>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               <a href="https://dontdrinkthewater.shop" target="_blank" rel="noopener noreferrer">
                 Don&#39;t Drink The Water
               </a>
-              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} />
+              <Icon icon="material-symbols:arrow-outward" style={{ fontSize: '1rem' }} className={styles.iconOutward} aria-hidden="true" />
             </div>
           </div>
         </div>
       </div>
       <div className={`${styles.fullPage} projects-cont`}>
-        <h1 className="title text-colour" style={{ overflow: 'hidden' }}>
+        <h2 className="title text-colour" style={{ overflow: 'hidden' }}>
           Projects.
-        </h1>
+        </h2>
         <Projects />
       </div>
       <div className={`${styles.fullPage} contact-cont`}>
-        <h1 className="title text-colour" style={{ overflow: 'hidden' }}>
+        <h2 className="title text-colour" style={{ overflow: 'hidden' }}>
           Contact.
-        </h1>
+        </h2>
         <Contact />
       </div>
     </>

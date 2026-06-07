@@ -29,6 +29,7 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
             icon="material-symbols:arrow-outward"
             className="text-colour"
             style={{ fontSize: '1rem' }}
+            aria-hidden="true"
           />
         </div>
       </div>

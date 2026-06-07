@@ -18,7 +18,7 @@
   transition: border-color 0.5s;
   display: flex;
   flex-direction: row;
-  max-height: 6vw;
+  min-height: clamp(44px, 6vw, 96px);
   overflow: hidden;
   position: relative;
 }
@@ -26,9 +26,11 @@
 .project a {
   text-transform: uppercase;
   margin: 0;
-  font-size: 4.75vw;
+  font-size: clamp(1rem, 4.75vw, 3.5rem);
   text-decoration: none;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .projectArrow {

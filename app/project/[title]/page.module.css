@@ -1,5 +1,5 @@
 .container {
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100svh - 5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,8 +15,8 @@
   border-bottom: solid var(--border-width) rgb(var(--text));
   transition: border-color 0.5s;
   padding: 0.6rem 0;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 0.95rem;
   line-height: 1.4;
   gap: 2rem;
@@ -43,16 +43,15 @@
 }
 
 .contentWrapper :global(.project-content-renderer) {
-  max-width: 135vh;
+  max-width: 720px;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* MDX content container */
-.contentWrapper > div {
-  max-width: 135vh;
+.mdxContent {
+  max-width: 720px;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
@@ -62,14 +61,14 @@
 
 /* Video styling */
 .contentWrapper :global(video) {
-  max-width: 135vh;
+  max-width: 720px;
   width: 100%;
   max-height: 90vh;
   height: auto;
 }
 
 @media screen and (max-width: 768px) {
-  .contentWrapper > div {
+  .mdxContent {
     max-width: 100%;
   }
 

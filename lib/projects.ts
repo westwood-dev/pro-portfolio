@@ -9,6 +9,7 @@ export interface ProjectMeta {
   date: string;
   description?: string;
   slug: string;
+  hidden?: boolean;
 }
 
 export interface Project extends ProjectMeta {
@@ -26,27 +27,28 @@ export function getAllProjects(): ProjectMeta[] {
         date: data.date as string,
         description: data.description as string | undefined,
         slug: f.replace('.mdx', ''),
+        hidden: data.hidden as boolean | undefined,
       };
     });
 }
 
-export function getProjectByTitle(title: string): Project | null {
-  for (const f of fs.readdirSync(DIR).filter((f) => f.endsWith('.mdx'))) {
-    const raw = fs.readFileSync(path.join(DIR, f), 'utf8');
-    const { data, content } = matter(raw);
-    if (data.title === title) {
-      return {
-        title: data.title as string,
-        date: data.date as string,
-        description: data.description as string | undefined,
-        slug: f.replace('.mdx', ''),
-        content,
-      };
-    }
-  }
-  return null;
+
+export function getProjectBySlug(slug: string): Project | null {
+  const f = `${slug}.mdx`;
+  const filePath = path.join(DIR, f);
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, 'utf8');
+  const { data, content } = matter(raw);
+  return {
+    title: data.title as string,
+    date: data.date as string,
+    description: data.description as string | undefined,
+    slug,
+    hidden: data.hidden as boolean | undefined,
+    content,
+  };
 }
 
 export function getNonWipProjects(): ProjectMeta[] {
-  return getAllProjects().filter((p) => p.date !== 'wip');
+  return getAllProjects().filter((p) => p.date !== 'wip' && !p.hidden);
 }

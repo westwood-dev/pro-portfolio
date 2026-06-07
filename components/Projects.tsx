@@ -11,12 +11,12 @@ export function Projects() {
       <div className={styles.projectsHolder}>
         {projects.map((project) => (
           <div key={project.slug} className={styles.project}>
-            <Link href={`/project/${encodeURIComponent(project.title)}`} className={`${styles.projectTitle} text-colour`}>
+            <Link href={`/project/${project.slug}`} className={`${styles.projectTitle} text-colour`}>
               {(project.title?.length || 0) <= 30
                 ? project.title
                 : project.title?.substring(0, 29) + '...'}
             </Link>
-            <div className={styles.projectArrow}>
+            <div className={styles.projectArrow} aria-hidden="true">
               <Icon icon="material-symbols:arrow-forward" style={{ fontSize: '5vw' }} />
             </div>
           </div>

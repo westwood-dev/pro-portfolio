@@ -1,7 +1,8 @@
 .p {
   margin: 0.75rem 0;
-  line-height: 1.6;
+  line-height: 1.65;
   font-size: 1rem;
+  max-width: 100ch;
 }
 
 .p:first-child {

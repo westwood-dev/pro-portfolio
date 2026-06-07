@@ -10,15 +10,13 @@ interface Props {
 
 export function ProseA({ href = '', target, children }: Props) {
   const isExternal = href.startsWith('http') || href.startsWith('mailto') || target === '_blank';
-  const icon = target === '_blank' || target == null
-    ? 'material-symbols:arrow-outward'
-    : 'material-symbols:arrow-forward';
+  const icon = isExternal ? 'material-symbols:arrow-outward' : 'material-symbols:arrow-forward';
 
   if (isExternal) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={styles.a}>
         {children}
-        <Icon icon={icon} style={{ fontSize: '0.75rem' }} />
+        <Icon icon={icon} style={{ fontSize: '0.75rem' }} aria-hidden="true" />
       </a>
     );
   }
@@ -26,7 +24,7 @@ export function ProseA({ href = '', target, children }: Props) {
   return (
     <Link href={href} className={styles.a}>
       {children}
-      <Icon icon={icon} style={{ fontSize: '0.75rem' }} />
+      <Icon icon={icon} style={{ fontSize: '0.75rem' }} aria-hidden="true" />
     </Link>
   );
 }
