@@ -37,7 +37,8 @@ export default async function ProjectPage({ params }: Props) {
 
   const words = project.title.split(' ');
   const longestWordLen = Math.max(...words.map((w) => w.length));
-  const fontSize = `calc(((100vw - 4rem) / ${longestWordLen})* 1.5)`;
+  const effectiveLen = Math.max(longestWordLen, 14);
+  const fontSize = `calc(((100vw - 4rem) / ${effectiveLen})* 1.5)`;
   const displayTitle = project.title.replace(/-/g, '‑');
 
   return (
@@ -63,19 +64,19 @@ export default async function ProjectPage({ params }: Props) {
       )}
       <div className={styles.contentWrapper}>
         <div className={styles.mdxContent}>
-        <MDXRemote
-          source={project!.content}
-          components={mdxComponents}
-          options={{
-            mdxOptions: {
-              remarkPlugins: [remarkGfm],
-              rehypePlugins: [
-                [rehypeImgSizeDecoded, { dir: 'public' }],
-                [rehypePrettyCode, { theme: { light: 'github-light', dark: 'github-dark-dimmed' }, keepBackground: false }],
-              ],
-            },
-          }}
-        />
+          <MDXRemote
+            source={project!.content}
+            components={mdxComponents}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [
+                  [rehypeImgSizeDecoded, { dir: 'public' }],
+                  [rehypePrettyCode, { theme: { light: 'github-light', dark: 'github-dark-dimmed' }, keepBackground: false }],
+                ],
+              },
+            }}
+          />
         </div>
       </div>
     </div>
