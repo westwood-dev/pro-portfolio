@@ -1,32 +1,124 @@
 ---
 title: Hanger
 description: iOS app for managing your wardrobe and building outfits.
-date: 07-2026
-hidden: true
+date: 2026
 ---
 
-## iOS wardrobe management and outfit builder
+## A smarter wardrobe, built from scratch
 
 *This project is in early development*
 
-![](/images/hanger/hanger-hero.png)
+
+Most mornings the hardest decision isn't what to do, it's what to wear. Not because there's nothing in the wardrobe, but because it's impossible to see everything at once. Hanger started as an answer to that problem: a personal catalogue of everything you own, organised visually, so getting dressed becomes a choice rather than a guess.
+
+The idea came out of university, where it started as a project. But it kept nagging at me after, partly because I actually wanted the app to exist, and partly because the technical problem underneath it is genuinely interesting. Getting clothing items out of photos cleanly, categorising them automatically, building something that feels fast and native rather than a glorified spreadsheet, none of that had a clean off-the-shelf solution.
+
+So Hanger became a side project. It still is.
+
+### What it is
+
+At its core, Hanger is a wardrobe management app. You photograph your clothing, the app extracts the item from the background, categorises it, and adds it to your collection. From there you can browse everything you own, filter by type or colour, and eventually build outfits.
+
+The vision is something that actually replaces the mental overhead of a wardrobe, not a mood board tool, not a shopping app, just a clean and honest catalogue of what you have.
+
+### How it's built
+
+The app is built in React Native with Expo. Clothing extraction uses a custom-trained YOLO model (yolo26s, trained on DeepFashion2) for detection, paired with expo-segmentation, a native Expo module I built specifically for this, wrapping Apple Vision on iOS and ML Kit on Android, for the actual background removal. Outfit detection runs on-device via [tflite](https://github.com/mrousavy/react-native-fast-tflite).
+
+The backend is Supabase: auth, storage, and a Postgres database. Builds go through EAS with separate dev and production environments.
+
+The pixel art UI icons are hand-made SVGs. Small detail, but it matters.
+
+### Where it is now
+
+Early prototype. The core loop works, photograph, extract, categorise, collect. It's rough in places and there's a long list of things I want to fix and build. I'm working on it alongside a full-time job, which means progress is measured in weekends and late evenings.
+
+The dev log below tracks what's actually happening.
 
 
-Hanger is an iOS app that helps you organise your wardrobe and build outfits. Add clothing items by photographing them — the app automatically removes the background and categorises each piece. From there, arrange items on a canvas to plan outfits, get weather-aware suggestions, and track what you actually wear.
 
-<Spacer />
 
-#### Features
+## Dev Log
 
-- **Wardrobe management** — photograph items, auto-remove backgrounds, tag by category and season
-- **Outfit canvas** — drag and drop items to compose and save outfits
-- **Smart suggestions** — weather and season-aware outfit recommendations
-- **Share to add** — share images directly from Photos or Safari into the app
 
-#### Tech stack
+### June 2026 - [expo-segmentation](/project/expo-segmentation) ships
+---
 
-- React Native / Expo (iOS)
-- Supabase (auth, database, storage)
-- TensorFlow Lite for on-device ML (background removal, clothing classification)
-- MMKV for local persistence with per-user isolation
-- Offline queue for wardrobe edits without connectivity
+Split the background removal logic out of the app and published it as a standalone Expo module: [@westwood-dev/expo-segmentation](https://npmjs.com/@westwood-dev/expo-segmentation). Felt like the right call, the native segmentation code had nothing Hanger-specific in it, and having it as a proper package means it gets versioned independently and I can use it elsewhere. First thing I've published to npm.
+
+
+
+
+
+### May 2026 - AsyncStorage → MMKV
+---
+
+Swapped out AsyncStorage for MMKV across the app. AsyncStorage is fine for small amounts of data but it's async all the way down, which means a lot of unnecessary awaiting for things that should just be reads, user preferences, cached state, settings. MMKV is synchronous and significantly faster. Not a visible change to anyone using the app, but the kind of thing that quietly improves everything built on top of it.
+
+
+
+
+
+### May 2026 - Weather-aware outfit suggestions
+---
+
+Added a suggestion algorithm that uses current and forecast weather data to recommend outfits. The idea is simple: the app knows what you own, and it knows what the weather is going to be, it should be able to give you a sensible starting point in the morning rather than leaving you staring at a full wardrobe.
+
+The algorithm weighs a few things: temperature range, precipitation, and how much of the day you're likely to be outside. Items are tagged with warmth and weather suitability at categorisation time, so the suggestion layer has something to work with. It's not trying to be a stylist, just a practical filter that surfaces relevant options.
+
+
+
+
+
+### April 2026 - Share extension for adding items
+---
+
+Added a share extension that lets you add items directly from Photos or Safari. The idea is to make it as easy as possible to get things into the app, if you see something in a photo or online that you want to add, you can share it straight to Hanger without having to save and import manually. The extension uses the same background removal and categorisation logic as the main app, so it's consistent no matter where you add items from. 
+
+It's a small feature but it smooths out the process of building your wardrobe, especially when you're adding things on the go, or something you've just bought and want to plan outfits with immediately.
+
+
+
+
+
+### April 2026 - The wardrobe grid, rebuilt
+---
+
+The original wardrobe view was a standard grid inside a ScrollView. It worked, but it felt like a spreadsheet. Clothing isn't really a scrolling list, when you're actually deciding what to wear, you pull things out and lay them on the bed to see everything at once. That's the mental model I wanted the app to match.
+
+So I rebuilt the grid from scratch using React Native Skia. Instead of scrolling vertically through rows, the whole wardrobe is a single pannable canvas. You drag in any direction, zoom in and out, and items sit in space rather than in a list. It feels much more like handling real things.
+
+Skia gave enough control over rendering to make this feel right, smooth gesture response, no janky repaints as items come into view. It's a more interesting design problem than optimising a FlatList, and the result is one of the parts of the app I'm most happy with.
+
+
+
+
+
+### March 2026 - Pro features framework
+---
+
+Laid the groundwork for paid features. Nothing visible yet, but the architecture is in place, a clean way to gate functionality behind a pro tier, with the logic centralised so it's easy to move features in or out. Doing this early matters; retrofitting monetisation into an app that wasn't designed for it is messy. The first actual pro features will follow once the core is stable enough to feel worth paying for.
+
+
+
+
+
+### March 2026 - Created a segmentation module for Expo
+---
+
+I wanted to run image segmentation on-device for the background removal feature, but there wasn't an existing Expo module that wrapped the native APIs for this. So I started making one myself. I started with the iOS implementation, which uses Apple Vision's segmentation capabilities. The Android version will use ML Kit's equivalent. The module provides a simple interface for passing in an image and getting back a segmented version with the background removed.
+
+It's still in early stages, but it's working well for Hanger's needs.
+
+
+
+
+
+### February 2026 - Training the clothing detector
+---
+
+The categorisation problem turned out to be harder than I expected. Generic object detection models don't understand clothing, they'll identify a "person" but not a "crew neck sweatshirt". So I trained a custom YOLO model on DeepFashion2, a large academic dataset of clothing items with detailed category labels.
+
+Training ran on my Linux machine with a GTX 3080. The dataset is big enough that this took a while to get right, getting the category mapping sensible, tuning confidence thresholds so the model isn't constantly second-guessing itself on ambiguous items like oversized shirts that read as dresses.
+
+The result is good enough to be useful. Not perfect, hoodies and jackets are tricky, but it correctly identifies the broad categories consistently, which is what the app needs to organise things automatically. The plan is to keep improving this model over time, building up a stronger, more specific category set from real-world usage data.

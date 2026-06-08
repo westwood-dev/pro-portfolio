@@ -17,6 +17,9 @@ export interface Project extends ProjectMeta {
 }
 
 function parseDateMMYYYY(date: string): number {
+  if (date === 'wip') return -1;
+  if (!String(date).includes('-')) return parseInt(date) * 100;
+
   const [mm, yyyy] = date.split('-');
   return parseInt(yyyy) * 100 + parseInt(mm);
 }

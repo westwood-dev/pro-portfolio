@@ -1,0 +1,6 @@
+.hr {
+  height: var(--border-width);
+  background: rgb(var(--text));
+  margin: 0 0 10px 0;
+}
+
