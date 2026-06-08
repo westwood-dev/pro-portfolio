@@ -1,11 +1,27 @@
 .fullPage {
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
+}
+
+.heroTitle,
+.heroInfo,
+.sectionTitle {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroTitle[data-visible],
+.heroInfo[data-visible],
+.sectionTitle[data-visible] {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .topLinksCont {
   display: flex;
   flex-direction: column;
   width: 100%;
+  transition: border-color 0.5s, opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .topLinksCont span,

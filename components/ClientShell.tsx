@@ -1,10 +1,34 @@
 'use client';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Icon } from '@iconify/react';
 import { useTheme } from '../hooks/useTheme';
 import { ThemeChanger } from './ThemeChanger';
 
 export function ClientShell({ children }: { children: React.ReactNode }) {
   const { currentTheme, setTheme } = useTheme();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = Number(entry.target.getAttribute('data-fade-delay') || 0);
+            setTimeout(() => {
+              entry.target.setAttribute('data-visible', '');
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    document.querySelectorAll('[data-fade]').forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [pathname]);
 
   const handleThemeChange = () => {
     setTheme(currentTheme === 'light' ? 'dark' : 'light');

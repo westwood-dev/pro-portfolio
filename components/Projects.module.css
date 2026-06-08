@@ -15,12 +15,19 @@
   width: 100%;
   border: solid rgb(var(--text));
   border-width: 0 0 var(--border-width) 0;
-  transition: border-color 0.5s;
   display: flex;
   flex-direction: row;
   min-height: clamp(44px, 6vw, 96px);
   overflow: hidden;
   position: relative;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: border-color 0.5s, opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project[data-visible] {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project a {
@@ -46,7 +53,7 @@
 
 .project:hover {
   background-color: rgb(var(--text));
-  transition: background-color 0.25s;
+  transition: background-color 0.25s, border-color 0.5s;
 }
 
 .project:hover a {

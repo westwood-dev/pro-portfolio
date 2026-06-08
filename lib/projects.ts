@@ -16,6 +16,11 @@ export interface Project extends ProjectMeta {
   content: string;
 }
 
+function parseDateMMYYYY(date: string): number {
+  const [mm, yyyy] = date.split('-');
+  return parseInt(yyyy) * 100 + parseInt(mm);
+}
+
 export function getAllProjects(): ProjectMeta[] {
   return fs
     .readdirSync(DIR)
@@ -29,6 +34,11 @@ export function getAllProjects(): ProjectMeta[] {
         slug: f.replace('.mdx', ''),
         hidden: data.hidden as boolean | undefined,
       };
+    })
+    .sort((a, b) => {
+      if (a.date === 'wip') return 1;
+      if (b.date === 'wip') return -1;
+      return parseDateMMYYYY(b.date) - parseDateMMYYYY(a.date);
     });
 }
 

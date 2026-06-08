@@ -9,6 +9,7 @@ import { ProseImg } from './ProseImg';
 import { ProseTable } from './ProseTable';
 import { Grid } from './Grid';
 import { Spacer } from './Spacer';
+import { ProseVideo } from './ProseVideo';
 
 export const mdxComponents = {
   h2: ProseH2,
@@ -20,6 +21,7 @@ export const mdxComponents = {
   pre: ProsePre,
   img: ProseImg,
   table: ProseTable,
+  video: ProseVideo,
   Grid,
   Spacer,
 };

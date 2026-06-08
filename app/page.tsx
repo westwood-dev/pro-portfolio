@@ -7,17 +7,18 @@ export default function Home() {
   return (
     <>
       <div className={styles.fullPage} style={{ paddingTop: 0 }}>
-        <h1 className="title text-colour" style={{ overflow: 'hidden' }}>
+        <h1 className={`title text-colour ${styles.heroTitle}`} data-fade="" data-fade-delay="0" style={{ overflow: 'hidden' }}>
           William
           <br />
           Westwood
         </h1>
         <div
-          className={styles.topLinksCont}
+          className={`${styles.topLinksCont} ${styles.heroInfo}`}
+          data-fade=""
+          data-fade-delay="150"
           style={{
             border: 'solid rgb(var(--text))',
             borderWidth: 'var(--border-width) 0',
-            transition: 'border-color 0.5s',
             width: '100%',
             marginTop: '2rem',
             padding: 0,
@@ -67,13 +68,13 @@ export default function Home() {
         </div>
       </div>
       <div className={`${styles.fullPage} projects-cont`}>
-        <h2 className="title text-colour" style={{ overflow: 'hidden' }}>
+        <h2 className={`title text-colour ${styles.sectionTitle}`} data-fade="" data-fade-delay="0" style={{ overflow: 'hidden' }}>
           Projects.
         </h2>
         <Projects />
       </div>
       <div className={`${styles.fullPage} contact-cont`}>
-        <h2 className="title text-colour" style={{ overflow: 'hidden' }}>
+        <h2 className={`title text-colour ${styles.sectionTitle}`} data-fade="" data-fade-delay="0" style={{ overflow: 'hidden' }}>
           Contact.
         </h2>
         <Contact />

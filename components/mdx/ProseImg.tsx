@@ -9,7 +9,7 @@ interface Props {
 
 export function ProseImg({ src = '', alt = '', width, height }: Props) {
   return (
-    <div className={`${styles.imgHolder} img-holder`}>
+    <div className={`${styles.imgHolder} img-holder`} data-fade="">
       <div className={`${styles.imgCont} img-cont`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />

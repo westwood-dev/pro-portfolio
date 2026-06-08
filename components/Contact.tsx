@@ -11,13 +11,15 @@ const links = [
 export function Contact() {
   return (
     <div className={styles.contactHolder}>
-      {links.map(({ label, text, href }) => (
+      {links.map(({ label, text, href }, i) => (
         <a
           key={label}
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           className={`${styles.contact} text-colour`}
+          data-fade=""
+          data-fade-delay={String(i * 75)}
         >
           <span className={styles.contactLabel}>{label}</span>
           <span className={styles.contactText}>{text}</span>

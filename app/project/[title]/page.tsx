@@ -43,7 +43,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <div className={styles.container}>
-      <h1 className={`title text-colour ${styles.projectTitle}`} style={{ fontSize, lineHeight: fontSize }}>
+      <h1 className={`title text-colour ${styles.projectTitle}`} data-fade="" data-fade-delay="0" style={{ fontSize, lineHeight: fontSize }}>
         <Link href="/" aria-label="Back to home">
           <Icon
             icon="material-symbols:arrow-forward"
@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: Props) {
         {displayTitle}
       </h1>
       {(project!.description || project!.date) && (
-        <div className={`${styles.metaStrip} text-colour`}>
+        <div className={`${styles.metaStrip} text-colour`} data-fade="" data-fade-delay="130">
           {project!.description && <span>{project!.description}</span>}
           {project!.date && project!.date !== 'wip' && (
             <span className={styles.metaDate}>{project!.date}</span>

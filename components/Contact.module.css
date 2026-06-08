@@ -16,10 +16,21 @@
   min-height: clamp(44px, 6vw, 96px);
   border: solid rgb(var(--text));
   border-width: 0 0 var(--border-width) 0;
-  transition: border-color 0.5s;
   position: relative;
   text-decoration: none;
   overflow-x: hidden;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: border-color 0.5s, opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact:last-child {
+  border-width: 0;
+}
+
+.contact[data-visible] {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contactLabel {
@@ -54,7 +65,7 @@
 .contact:hover {
   background-color: rgb(var(--text));
   color: rgb(var(--bg));
-  transition: background-color 0.25s, color 0.25s;
+  transition: background-color 0.25s, color 0.25s, border-color 0.5s;
 }
 
 .contact:hover .contactArrow {
