@@ -89,6 +89,14 @@ select:focus-visible {
   border-radius: 2px;
 }
 
+code {
+  font-family: monospace;
+  font-size: 0.85em;
+  background-color: rgba(var(--text), 0.1);
+  padding: 0.2em;
+  border-radius: 0.25rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;

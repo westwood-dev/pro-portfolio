@@ -1,9 +1,7 @@
 .h5 {
-  font-size: 0.65rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.25rem;
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.2;
   margin: 1rem 0 0.25rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.5;
 }

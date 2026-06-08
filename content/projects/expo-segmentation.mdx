@@ -5,36 +5,33 @@ date: 07-2026
 tags: [npm, open-source, react-native, expo, ios, android]
 ---
 
-### Native subject segmentation for Expo — my first published npm package
+## Native background removal and subject segmentation for Expo and React Native
 
-expo-segmentation is an open-source Expo module that brings native background removal and subject segmentation to React Native apps. On iOS it uses Apple Vision's `VNGenerateForegroundInstanceMaskRequest` (iOS 17+); on Android it uses Google ML Kit Subject Segmentation (API 24+). The web platform returns `isAvailable() → false` gracefully.
+I built this while working on [Hanger](/project/hanger), a wardrobe management app. The core feature, scanning a clothing item and extracting it from its background, needed to feel fast and native, not like a canvas filter. Most existing React Native solutions are either JS-based (slow, low quality) or wrap outdated models that don't take advantage of what modern devices can do natively. iOS 17 ships with `VNGenerateForegroundInstanceMaskRequest` in Apple Vision. Android has `Google ML Kit Subject Segmentation`. Both are good. Neither had a proper Expo module wrapping them.
+
+So I wrote one.
 
 
-```bash
-npm install @westwood-dev/expo-segmentation
-```
-[NPM package](https://www.npmjs.com/package/@westwood-dev/expo-segmentation) | [Source code](https://github.com/westwood-dev/expo-segmentation)
 
-#### API
+### What it does
 
-The module exposes three methods:
-
-- **`isAvailable()`** — synchronous platform check before loading any heavy model
-- **`detectSubjects(uri)`** — runs the segmentation model and returns one `SubjectInfo` entry per detected foreground subject, each with a preview PNG URI
-- **`removeBackground(uri, options?)`** — crops and returns transparent-background PNGs for the requested subjects, with optional greyscale mask output
+The module exposes three methods: `isAvailable()` for a synchronous platform check before loading anything heavy, `detectSubjects()` which runs segmentation and returns one entry per detected foreground subject with a preview URI, and `removeBackground()` which returns transparent-background PNGs for the requested subjects. Images over 12MP are automatically downscaled before processing to keep memory usage reasonable on device.
 
 ```tsx
 const subjects = await ExpoSegmentation.detectSubjects(uri);
-// [{ index: 0, previewUri: 'file://...' }, ...]
-
 const cutouts = await ExpoSegmentation.removeBackground(uri, {
   subjectIndices: [0],
   returnMask: false,
 });
-// [{ uri, width, height, cropRect: { x, y, width, height } }]
 ```
 
-#### Platform support
+
+
+### Under the hood
+
+The trickiest part was building a unified JS API over two native implementations that approach the same problem with different mental models. Apple Vision works through a request/handler pattern with observation objects; ML Kit uses a more straightforward async task pattern. The Swift and Kotlin sides needed to produce the same output shape, *subject index, preview URI, crop rect*, so the JS layer could stay clean and platform-agnostic.
+
+The module is built as a first-class Expo module, which means it works with EAS Build and local development builds but not Expo Go. Due to this limitation, I created a simple lightweight example app to showcase the module in action, which you can find in the GitHub repo.
 
 | Platform | Engine | Min version |
 |----------|--------|-------------|
@@ -42,10 +39,14 @@ const cutouts = await ExpoSegmentation.removeBackground(uri, {
 | Android | Google ML Kit | API 24 (Android 7.0) |
 | Web | — | `isAvailable()` returns `false` |
 
-#### Notes
 
-- Output is written to the device's temporary cache directory
-- Images 12 MP+ are automatically downscaled before processing to keep memory usage reasonable
-- Built as a first-class Expo module — works with EAS Build and development builds; not compatible with Expo Go
 
-{/*The module grew out of the background removal pipeline built for [Hanger](/project/hanger), extracted and published so other Expo projects can use it directly.*/}
+### Status
+
+The package is live on npm and actively used in Hanger. If you're building anything in React Native that involves images and subjects (clothing, people, objects), it should drop straight in.
+
+```bash
+npm install @westwood-dev/expo-segmentation
+```
+
+[NPM](https://www.npmjs.com/package/@westwood-dev/expo-segmentation) | [GitHub](https://github.com/westwood-dev/expo-segmentation)
