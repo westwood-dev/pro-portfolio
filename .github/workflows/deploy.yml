@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: '20'
       - run: npm install
+      - name: Optimize images
+        run: node scripts/optimize-images.mjs
       - run: npm run build
       - name: Add GitHub Pages files
         run: |
