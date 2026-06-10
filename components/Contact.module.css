@@ -84,6 +84,20 @@
 
 @media screen and (max-width: 768px) {
   .contactArrow {
-    right: 0;
+    position: static;
+    font-size: clamp(1rem, 4.75vw, 3.5rem);
+  }
+
+  .contactText {
+    flex:1;
+    text-align: right;
+  }
+
+  .contact:hover .contactText {
+    transform: none;
+  }
+
+  .contact:hover .contactArrow {
+    transform: none;
   }
 }
