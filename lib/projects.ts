@@ -8,6 +8,9 @@ export interface ProjectMeta {
   title: string;
   date: string;
   description?: string;
+  subtitle?: string;
+  cover?: string;
+  type?: 'project' | 'experiment';
   slug: string;
   hidden?: boolean;
 }
@@ -34,6 +37,9 @@ export function getAllProjects(): ProjectMeta[] {
         title: data.title as string,
         date: data.date as string,
         description: data.description as string | undefined,
+        subtitle: data.subtitle as string | undefined,
+        cover: data.cover as string | undefined,
+        type: (data.type as 'project' | 'experiment' | undefined) ?? 'project',
         slug: f.replace('.mdx', ''),
         hidden: data.hidden as boolean | undefined,
       };
@@ -56,6 +62,9 @@ export function getProjectBySlug(slug: string): Project | null {
     title: data.title as string,
     date: data.date as string,
     description: data.description as string | undefined,
+    subtitle: data.subtitle as string | undefined,
+    cover: data.cover as string | undefined,
+    type: (data.type as 'project' | 'experiment' | undefined) ?? 'project',
     slug,
     hidden: data.hidden as boolean | undefined,
     content,
@@ -64,4 +73,14 @@ export function getProjectBySlug(slug: string): Project | null {
 
 export function getNonWipProjects(): ProjectMeta[] {
   return getAllProjects().filter((p) => p.date !== 'wip' && !p.hidden);
+}
+
+// Flagship, curated work for the main list.
+export function getProjects(): ProjectMeta[] {
+  return getNonWipProjects().filter((p) => p.type !== 'experiment');
+}
+
+// Smaller creative-coding and 3D pieces.
+export function getExperiments(): ProjectMeta[] {
+  return getNonWipProjects().filter((p) => p.type === 'experiment');
 }

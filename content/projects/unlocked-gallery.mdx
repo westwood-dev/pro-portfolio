@@ -1,0 +1,27 @@
+---
+title: Unlocked Gallery
+description: A browser-native 3D gallery built to exhibit 50 students' work after lockdown closed the physical show.
+subtitle: a WebGL gallery that ran a show — and raised money
+cover: /images/unlocked-gallery/GallerySS1-min.png
+date: 05-2020
+---
+
+## A browser-native 3D gallery, built when the physical one was cancelled
+
+When lockdown ended my foundation course early, the final show — the thing a year of work builds towards — disappeared with it. So I built a replacement: a fully 3D gallery you walk through in the browser, holding the work of 50 students and tutors. No app, no download, just a link. It opened with a private view over Zoom and had over 300 visitors in its first month.
+
+![Gallery interior](/images/unlocked-gallery/GallerySS1-min.png)
+
+The space is modelled on the Boros Bunker in Berlin, which our class had visited weeks before everything shut. It holds a real range of work — video, photography, 3D scans — hung across the rooms as you move through them.
+
+![Gallery interior](/images/unlocked-gallery/GallerySS2-min.png)
+
+### How it's built
+
+The space was designed in Blender and brought into the browser with Babylon.js. The real constraint was reach: it had to run on whatever laptop a visitor happened to own, not a gaming rig. Every asset was converted to the `dxt.ktx` compressed texture format to cut GPU memory right down, so the whole gallery stays smooth on low-powered hardware.
+
+![Gallery view](/images/unlocked-gallery/GallerySS3-min.png)
+
+Visitors could also buy high-quality copies of collections — every penny raised went to a range of Black Lives Matter charities.
+
+[Live version](https://gallery.wwstwd.studio/) | [Code on GitHub](https://github.com/iwouldntbother/gallery)

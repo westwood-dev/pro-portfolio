@@ -45,7 +45,7 @@ body {
 
 .title {
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: calc(calc(100vw - 4rem) / 6.3);
+  font-size: calc(calc(100vw - 4rem) / 6.5);
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
@@ -137,7 +137,7 @@ code {
   }
 
   .title {
-    font-size: calc(calc(100vw - 2rem) / 6.3);
+    font-size: calc(calc(100vw - 2rem) / 6.5);
     line-height: calc(100vw / 7.5);
   }
 
