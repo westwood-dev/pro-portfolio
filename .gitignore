@@ -14,6 +14,9 @@ logs
 .fleet
 .idea
 
+# Generated responsive image variants (rebuilt by scripts/generate-responsive-images.mjs)
+public/images/**/.responsive/
+
 # Local env files
 .env
 .env.*
