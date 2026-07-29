@@ -46,7 +46,7 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
         />
         <span className="text-colour">William Westwood | {new Date().getFullYear()}</span>
         <div>
-          <a href="https://design.williamwestwood.com" className="text-colour">
+          <a href="https://design.williamwestwood.com" className="text-colour" target="_blank" rel="noopener noreferrer">
             design work
           </a>
           <Icon

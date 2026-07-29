@@ -1,0 +1,45 @@
+---
+title: Walls at the World's End
+description: Technical consultancy for Louis Morlæ's solo show at Tranen
+subtitle: three robots, positioned by scraped sentiment, on a political grid
+cover: /images/tranen/img016.webp
+date: 07-2026
+---
+
+## Technical consultancy for Louis Morlæ at Tranen
+
+Working again with [Louis Morlæ](https://www.roseeaston.com/artists/louis-morlae), I provided technical consultancy for his solo show at [Tranen](https://tranen.dk), Denmark. The work positions three robot sculptures on a grid representing their hypothetical political views, driven by live sentiment analysis scraped from the web.
+
+![](/images/tranen/img002.webp)
+
+### Web Scraper & Sentiment Analysis
+
+Each robot has an assigned personality. A custom Python scraper, built on `yfinance` and `feedparser`, continuously pulls financial data and news text relevant to that personality. Rather than using a dedicated sentiment model or an LLM API, I opted for a keyword-based sentiment approach; this gave the artist much finer control over how specific terms and stories pulled each robot's position, rather than leaving that judgement to a black-box model.
+
+<Grid>
+
+![](/images/tranen/img012.webp)
+
+![](/images/tranen/img011.webp)
+
+![](/images/tranen/img004.webp)
+
+![](/images/tranen/img021.webp)
+
+</Grid>
+
+### Build
+
+The core challenge was translating a continuously updating data pipeline into something a gallery invigilator could act on physically, once a day, without any technical knowledge.
+
+- **Scraping:** A custom Python scraper pulls financial data via `yfinance` and news via `feedparser`, refreshed on a schedule to feed each robot's assigned personality with relevant text.
+
+- **Sentiment analysis:** Text is scored using a keyword-based sentiment approach rather than a pre-trained model or LLM, giving the artist direct control over which terms and stories move each robot's position on the political grid, rather than deferring to a general-purpose model's judgement.
+
+- **Runtime:** The whole pipeline runs on a Raspberry Pi on-site, connected directly to a receipt printer.
+
+- **Human-in-the-loop actuation:** Rather than fully automating the robots' physical movement, the software prints a daily receipt giving the position and rotation for each robot. A gallery invigilator manually moves each robot into place each day using its motors and controller, based on the printed instructions.
+
+![](/images/tranen/img016.webp)
+
+_All photographs © David Stjernholm. Used with permission from the artist Louis Morlæ._

@@ -1,0 +1,43 @@
+---
+title: Euphoria Rover
+description: Technical consultancy for Louis Morlæ at Bold Tendencies
+subtitle: a solar- and wind-powered rover that mixes its own music
+cover: /images/bold-tendencies/LousMorlæ_Ref--8950-1.webp
+date: 05-2026
+---
+
+## Technical consultancy for Louis Morlæ at Bold Tendencies
+
+Working again with [Louis Morlæ](https://www.roseeaston.com/artists/louis-morlae), I provided technical consultancy for a piece shown at [Bold Tendencies](https://boldtendencies.com), the multi-storey car park gallery in Peckham.
+
+The centrepiece is a rover-like robot sculpture, capable of movement, that translates weather into sound.
+
+![](/images/bold-tendencies/LousMorlæ_Ref--8950-1.webp)
+
+### Solar & Wind-Driven Music Mixing
+
+A solar panel and wind sensor are wired into the sculpture and fed into an alpha build of [Bronze.ai](https://bronze.ai), so the piece's audio output responds directly to ambient light and wind conditions. The mapping isn't a simple 1:1. Solar and wind each drive the gain of their own group of shuffled tracks within Bronze, so the two signals blend into a mix rather than triggering discrete sounds. All of this is embedded inside the rover, alongside the drive system that lets it move on motorised wheels.
+
+<Grid>
+
+![](/images/bold-tendencies/LousMorlæ_Ref--8800-9.webp)
+
+![](/images/bold-tendencies/LousMorlæ_Ref-8782-7.webp)
+
+</Grid>
+
+### Build
+
+The core engineering challenge was less about any single component, and more about getting three separate worlds (sensor hardware, a beta creative-coding platform, and a fully sealed, unattended enclosure) to work together reliably for the run of a public show.
+
+- **Sensing:** An Arduino reads the wind sensor and solar panel (used purely as a light sensor, not for power) and streams the readings out over serial via USB to a Mac Mini housed inside the sculpture.
+
+- **Bridging hardware to software:** Bronze speaks OSC, not serial, so there was no off-the-shelf way to get sensor data into the mix. I wrote a custom Python bridge to translate the Arduino's serial stream into OSC messages in real time, mapping wind and solar readings to the gain of their own group of shuffled tracks within Bronze, so the two signals blend continuously into the mix rather than triggering isolated sounds.
+
+- **Reliability with no physical access:** Because the Mac Mini was sealed inside the sculpture for weatherproofing, there was no way to plug in a monitor or restart anything by hand once the show opened. I used `launchctl` to auto-start both the OSC bridge and Bronze on boot, and to automatically recover either process if it crashed; effectively making the whole audio pipeline self-healing for the length of the exhibition.
+
+- **Movement:** Motorised wheels drive the rover independently of the sensing and audio systems, letting it move through the space while the weather-to-sound pipeline runs continuously in the background.
+
+![](/images/bold-tendencies/LousMorlæ_Ref--8815.webp)
+
+_All photographs © Jack Edwards. Used with permission from the artist Louis Morlæ._

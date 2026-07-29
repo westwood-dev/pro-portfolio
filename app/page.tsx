@@ -39,7 +39,7 @@ export default function Home() {
             {/*   Creative technologist */}
             {/* </span> */}
             <span>
-              I design and build as one practice — native iOS apps, developer tooling, WebGL installations and generative graphics. Most of the attention goes to what you don't see: how an interaction feels, how the system holds underneath.
+              I design and build as one practice - native iOS apps, developer tooling, WebGL installations and generative graphics. Most of the attention goes to what you don't see: how an interaction feels, how the system holds underneath.
             </span>
             <span>
               Currently Lead Software Engineer at Ambient Works.

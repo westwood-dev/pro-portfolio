@@ -2,13 +2,15 @@
 title: Do You Exist
 description: Art installation exploring the concept of existence in the digital realm.
 subtitle: a facial-recognition installation about your digital self
-cover: /images/do-you-exist/004-min.png
+cover: /images/do-you-exist/004-min.webp
 date: 07-2023
 ---
 
 ## Art installation exploring the concept of existence in the digital realm
 
-You walk up, it recognises your face, and prints you a receipt of everything it claims to know about you. None of it is real — the data is generated — but it's dressed up to feel like a genuine dossier. The point is the flinch: the moment you believe a machine has been quietly holding a file on you, and you have to ask how far that is from the truth.
+*CCI Diploma Degree Show, South London - 07/2023*
+
+Everyone assumes their data is personal, that somewhere, a system knows them. This installation breaks that assumption quietly: it doesn't recognise you, it just assigns you an identity and remembers which one it gave you.
 
 <Spacer />
 
@@ -16,39 +18,39 @@ You walk up, it recognises your face, and prints you a receipt of everything it 
 
 <Spacer />
 
+#### How it works
+
+A webcam scans your face. Facial recognition doesn't identify who you are, it only checks whether it's seen you before. First visit, it generates a full synthetic identity: a StyleGAN2 face, a custom-GAN fingerprint, a Faker-built profile of personal data. It prints the lot as a receipt, styled like real surveillance output. Come back, and you get the exact same “you", proof the system is tracking, even though nothing about it is real.
+
 <Grid>
-![Wide shot in situ](/images/do-you-exist/001-min.png)
+![Wide shot in situ](/images/do-you-exist/001-min.webp)
 
-![Output receipt](/images/do-you-exist/002-min.png)
+![Output receipt](/images/do-you-exist/002-min.webp)
 
-![Facial recognition](/images/do-you-exist/003-min.png)
+![Facial recognition](/images/do-you-exist/003-min.webp)
 
-![Receipt printing](/images/do-you-exist/005-min.png)
+![Receipt printing](/images/do-you-exist/005-min.webp)
 
-![Printed receipt](/images/do-you-exist/006-min.png)
+![Printed receipt](/images/do-you-exist/006-min.webp)
 
-![ ](/images/do-you-exist/007-min.png)
+![ ](/images/do-you-exist/007-min.webp)
 </Grid>
 
-<Spacer />
+#### Why fake data
 
-This project is an exploration into data privacy and the digital footprint we leave behind. The project is designed to raise awareness about the amount of information that is available about us online and to encourage users to think about their digital footprint. The data is generated, but designed to look like it is real. It uses facial recognition to serve the same data to each user.
+Real user data was never an option, practically or ethically, and using it would have missed the point. The piece isn't about your data, it's about a system's confidence that it has it. Fabricated data that looks convincingly real does that job better than genuine data would.
 
-#### Tech stack
+#### Build
 
-- Node.js server running on PC
-- Python scripts for facial recognition and data generation
-- Thermal printer for receipts
-- Webcam for facial recognition
-- iPad for touch interface
-- 24 inch monitor for output
+- MediaPipe + OpenCV for face detection and re-identification - fast enough to feel instant, which matters for the moment of recognition to land
+- StyleGAN2 for faces, a custom-built GAN for fingerprints - different generators for different levels of biometric plausibility
+- Faker (Python) for the surrounding personal data
+- iPad for the interaction, thermal printer for the receipt, 24" monitor for ambient output - a deliberately unglamorous, official-looking rig, so the receipt reads as bureaucratic fact rather than art
 
-#### Software
+#### What happened
 
-The facial recognition uses MediaPipe and OpenCV to detect faces and compare them to a database of known faces.
+Visitors who returned got visibly shocked seeing the same fake data printed back at them, the illusion of being "known" worked. But the response that mattered more: people started comparing receipts with friends, laughing at the invented details. The piece triggered curiosity and comparison, not the discomfort of being surveilled. In hindsight, that's a finding about the piece, not a failure of it. People don't fear data collection until the system appears to judge them with it, not just hold it.
 
-The data generation is done with the python faker library.
+#### What I'd change
 
-The face images are generated using StyleGAN2 and the fingerprints are generated using a custom built GAN.
-
-Both the iPad and screen UI are website based, using vanilla JavaScript and CSS.
+Make the system assumptive, not just retentive. Right now it proves it remembers you, the real threat of mass surveillance is systems that infer and judge: risk scores, character assumptions, decisions made about you from data you never gave consent to shape. That's the version of this piece that would land as fear rather than novelty.
