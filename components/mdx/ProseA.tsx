@@ -16,6 +16,7 @@ export function ProseA({ href = '', target, children }: Props) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className={styles.a}>
         {children}
+        <span className="sr-only">(opens in new tab)</span>
         <Icon icon={icon} style={{ fontSize: '0.75rem' }} aria-hidden="true" />
       </a>
     );

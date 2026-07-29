@@ -30,31 +30,22 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const handleThemeChange = () => {
-    setTheme(currentTheme === 'light' ? 'dark' : 'light');
-  };
-
   return (
     <div className="bg-colour text-colour site-cont">
       {children}
       <div className="footer-cont">
-        <ThemeChanger
-          currentTheme={currentTheme}
-          showSelector={true}
-          onChangeTheme={handleThemeChange}
-          onSelectTheme={setTheme}
-        />
+        <ThemeChanger currentTheme={currentTheme} onSelectTheme={setTheme} />
         <span className="text-colour">William Westwood | {new Date().getFullYear()}</span>
         <div>
-          <a href="https://design.williamwestwood.com" className="text-colour" target="_blank" rel="noopener noreferrer">
-            design work
-          </a>
-          <Icon
-            icon="material-symbols:arrow-outward"
-            className="text-colour"
-            style={{ fontSize: '1rem' }}
-            aria-hidden="true"
-          />
+          {/* <a href="https://design.williamwestwood.com" className="text-colour" target="_blank" rel="noopener noreferrer"> */}
+          {/*   design work */}
+          {/* </a> */}
+          {/* <Icon */}
+          {/*   icon="material-symbols:arrow-outward" */}
+          {/*   className="text-colour" */}
+          {/*   style={{ fontSize: '1rem' }} */}
+          {/*   aria-hidden="true" */}
+          {/* /> */}
         </div>
       </div>
     </div>

@@ -8,17 +8,17 @@ export const themes: { [key: string]: ITheme } = {
   red: {
     text: '10,3,2',
     bg: '242,67,58',
-    link: '253,250,249',
+    link: '15,20,66',
   },
   green: {
     text: '2,8,3',
     bg: '0,189,50',
-    link: '17,44,178',
+    link: '8,18,105',
   },
   blue: {
     text: '1,4,8',
     bg: '4,171,217',
-    link: '185,14,26',
+    link: '95,8,14',
   },
   light: {
     text: '14,12,11',

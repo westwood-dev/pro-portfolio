@@ -6,7 +6,7 @@ export default function NotFound() {
   const router = useRouter();
   return (
     <div className={styles.container}>
-      <h2>404</h2>
+      <h1>404</h1>
       <p>Hmm, something isn&#39;t right here</p>
       <button onClick={() => router.push('/')}>Head home?</button>
     </div>
